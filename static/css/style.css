@@ -1,0 +1,22 @@
+h1 {
+  font-size: 100px;
+  text-align: center;
+  color: pink;
+  font-family: 'lobster';
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-github {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-twitter {
+  background: #007bb5;
+  color: white;
+
+}
