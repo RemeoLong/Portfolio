@@ -5,6 +5,10 @@ h1 {
   font-family: 'lobster';
 }
 
+p {
+    text-align: center;
+}
+
 .fa-linkedin {
   background: #007bb5;
   color: white;

@@ -31,7 +31,7 @@ header1 {
   padding: 20px;
   text-align: center;
   color: white;
-  height: 175px;
+  height: 150px;
 }
 
 header2 {
@@ -40,16 +40,21 @@ header2 {
   text-align: center;
   width: 85%;
   padding: 20px;
-  height: 175px;
+  height: 150px;
+  font-size: 50px;
 }
 
 /* Create two columns/boxes that floats next to each other */
 nav {
   float: left;
   width: 15%;
-  height: 600px;
-  background: url('https://media.giphy.com/media/kES2cOItyCrSM/giphy.gif') no-repeat 100%;
+  height: 700px;
+  background: url('static/css/wave.jpg') no-repeat 100%;
   padding: 20px;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  position: relative;
 }
 
 /* Style the list inside the menu */
@@ -60,12 +65,18 @@ nav ul {
 }
 
 article {
-  background: url('static/css/laptop.jpg') no-repeat 100%;
+  background: url('@@static/css/sunset.jpg') no-repeat 100%;
   float: left;
+  text-align: center;
   padding: 20px;
   width: 85%;
   background-color: #f1f1f1;
-  height: 600px;
+  height: 700px;
+  font-size: 25px;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  position: relative;
 }
 
 /* Clear floats after the columns */
@@ -78,7 +89,7 @@ section:after {
 /* Style the footer */
 footer {
   background-color: #777;
-  padding: 10px;
+  padding: 8px;
   text-align: center;
   color: white;
 }
@@ -121,14 +132,10 @@ footer {
     </ul>
   </nav>
 
-  <article>
-    <h1>London</h1>
-    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
-    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
-  </article>
-</section>
+  <br>
     {% block body %}
     {% endblock %}
+  </section>
 <footer>
   <p>Footer</p>
 </footer>
