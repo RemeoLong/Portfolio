@@ -5,10 +5,6 @@ def home(request):
     return render(request, 'index/home.html', {})
 
 
-def contact(request):
-    return render(request, 'index/contact.html', {})
-
-
 def work(request):
     return render(request, 'index/experience.html', {})
 
