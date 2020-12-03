@@ -10,8 +10,8 @@ urlpatterns = [
     path('practice_test_4', views.test4, name='Practice_Test_4'),
     path('practice_test_5', views.test5, name='Practice_Test_5'),
     path('practice_test_6', views.test6, name='Practice_Test_6'),
-    path('practice_test_7', views.test7, name='Practice_Test_7'),
-    path('practice_test_8', views.test8, name='Practice_Test_8'),
     path('final_score', views.final, name='Final_score'),
     path('tips', views.tips, name='Tips & Tricks'),
+    path('<int:question_id>/', views.detail, name='detail'),
+    path('<int:question_id>/results/', views.result, name='results'),
 ]
