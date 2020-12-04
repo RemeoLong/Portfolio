@@ -14,6 +14,5 @@ urlpatterns = [
     path('tips', views.tips, name='Tips & Tricks'),
     path('<int:question_id>/', views.detail, name='detail'),
     path('<int:question_id>/results/', views.result, name='results'),
-    path('<int:question_id>/vote/', views.vote, name='vote'),
     path('hope', views.index, name='index'),
 ]
