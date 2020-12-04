@@ -1,23 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>{{ question.passage }}</h1>
+{% extends 'SATbase.html' %}
+{% load static %}
+{% block head %}
+<title>SAT Practice</title>
+{% endblock %}
 
-<h1>{{ question.questions_text }}</h1>
 
+{% block body %}
+<div class="jumbotron text-center">
+  <h1>SAT Practice Question: {{ question.id }} </h1>
+</div>
+<div class="ex2">
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    <h1>Passage / Equation:</h1>
+    <p>{{ question.passage }}</p>
+  </div>
+<div class="column" style="background-color:#bbb;">
+<h1>Question: </h1>
+<h2>{{ question.questions_text }}</h2>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <form action="{% url 'results' question.id %}" method="post">
 {% csrf_token %}
 {% for choice in question.choice_set.all %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+    <label for="choice{{ forloop.counter }}"><p>{{ choice.choice_text }}</p></label><br>
 {% endfor %}
 <input type="submit" value="Submit Answer">
 </form>
-</body>
-</html>
+</div>
+  </div>
+{% endblock %}
+
+
+

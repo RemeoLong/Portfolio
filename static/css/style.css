@@ -5,6 +5,13 @@ h1 {
   font-family: 'lobster';
 }
 
+h2 {
+font-size: 100px;
+  text-align: center;
+  color: pink;
+  font-family: 'lobster';
+}
+
 p {
     text-align: center;
 }
