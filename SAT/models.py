@@ -6,6 +6,9 @@ from django.utils import timezone
 class Passage(models.Model):
     passage_text = models.CharField(max_length=10000)
 
+    def __str__(self):
+        return self.passage_text
+
 
 class Question(models.Model):
     passage = models.ForeignKey(Passage, on_delete=models.CASCADE)
@@ -37,5 +40,8 @@ class Choice(models.Model):
 class Explanation(models.Model):
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
     explain = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.explain
 
 

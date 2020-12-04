@@ -9,7 +9,7 @@
 
 <ul>
 {% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.is_answer }} {{ choice.explain }}</li>
+    <li>{{ choice.choice_text }} -- {{ choice.is_answer }} {{ explanation.choice }}</li>
 {% endfor %}
 </ul>
 
