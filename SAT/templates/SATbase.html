@@ -13,6 +13,37 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <style>
+div.ex1 {
+  width: 1000px;
+  margin: auto;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li2 {
+  float: right;
+}
+
+li a {
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
+}
+
+li2 a {
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
+}
 
 </style>
 
@@ -20,8 +51,27 @@
 {% endblock %}
 </head>
 <body>
+<ul>
+  <li><a href="https://remeolong.pythonanywhere.com/Projects">Back to Projects</a></li>
+  <li><a href="https://remeolong.pythonanywhere.com">Portfolio Home</a></li>
+  <li><a href="home">SAT Home</a></li>
+
+  <li2><a href="practice_test_6">Test 6</a></li2>
+  <li2><a href="practice_test_5">Test 5</a></li2>
+  <li2><a href="practice_test_4">Test 4</a></li2>
+  <li2><a href="practice_test_3">Test 3</a></li2>
+  <li2><a href="practice_test_2">Test 2</a></li2>
+  <li2><a href="practice_test_1">Test 1</a></li2>
+  <li2><a href="tips">Tips & Tricks</a></li2>
+</ul>
 
 {% block body %}
 {% endblock %}
 </body>
+<footer>
+    <ul>
+  <li2><a href="terms">Terms of Use</a></li2>
+  <li2><a href="policy">Privacy Policy</a></li2>
+      </ul>
+</footer>
 </html>

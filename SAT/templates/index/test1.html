@@ -1,11 +1,14 @@
-<h1>{{ question.questions_text }}</h1>
+{% extends 'SATbase.html' %}
+{% load static %}
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% block head %}
+<title>Test 1</title>
+{% endblock %}
 
-<form action="results/" method="post">
-{% csrf_token %}
-{% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-{% endfor %}
-<input type="submit" value="Submit Answer">
+
+{% block body %}
+<div class="jumbotron text-center">
+  <h1>SAT Practice Tests 1</h1>
+</div>
+
+{% endblock %}

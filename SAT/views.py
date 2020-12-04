@@ -61,6 +61,7 @@ def detail(request, question_id):
     except Question.DoesNotExist:
         raise Http404("Sorry, Question does not exist")
     return render(request, 'index/details.html', {'question': question})
+#need to add a "submit" request function under details so we know what the user selected as their choice.#
 
 
 def result(request, question_id):
