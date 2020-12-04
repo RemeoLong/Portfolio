@@ -6,10 +6,10 @@
 </head>
 <body>
 <h1>{{ question.questions_text }}</h1>
-
+<p>Your Choice was: </p>
 <ul>
 {% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.is_answer }} {{ explanation.choice }}</li>
+    <li>{{ choice.choice_text }} -- {{ choice.correct }} -- {{ choice.explain }}</li>
 {% endfor %}
 </ul>
 
