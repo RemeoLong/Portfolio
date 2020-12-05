@@ -20,9 +20,9 @@
 <p>Your Choice was: </p>
 <ul>
 {% for choice in question.choice_set.all %} <br>
-    <li>{{ choice.choice_text }}</li>
-    <li>This answer was: {{ choice.correct }}</li>
-    <li>Explanation: {{ choice.explain }}</li>
+    <li>&#9658; {{ choice.choice_text }}</li>
+    <li>&#9644; This answer was: {{ choice.correct }}</li>
+    <li>&#9677; Explanation: {{ choice.explain }}</li>
 {% endfor %}
 </ul>
 </div>
