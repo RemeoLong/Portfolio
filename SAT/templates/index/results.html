@@ -1,18 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Results</title>
-</head>
-<body>
+{% extends 'SATbase.html' %}
+{% load static %}
+{% block head %}
+<title>Results</title>
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron text-center">
+  <h1>SAT Practice Question: {{ question.id }} </h1>
+</div>
+<div class="ex2">
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+<h1>Passage / Equation:</h1>
+    <p>{{ question.passage }}</p>
+  </div>
+<div class="column" style="background-color:#bbb;">
+    <h1>Answer for Question:</h1>
 <h1>{{ question.questions_text }}</h1>
 <p>Your Choice was: </p>
 <ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} // This answer was: {{ choice.correct }} // Explanation: {{ choice.explain }}</li>
+{% for choice in question.choice_set.all %} <br>
+    <li>{{ choice.choice_text }}</li>
+    <li>This answer was: {{ choice.correct }}</li>
+    <li>Explanation: {{ choice.explain }}</li>
 {% endfor %}
 </ul>
-
-</body>
-</html>
-
+</div>
+</div>
+</div>
+{% endblock %}
