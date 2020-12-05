@@ -36,7 +36,9 @@ font-size: 100px;
   float: left;
   width: 50%;
   padding: 10px;
-  height: 640px; /* Should be removed. Only for demonstration */
+  min-height: 640px;
+  height:auto;
+  max-height: 1500px;
 }
 
 .row:after {
