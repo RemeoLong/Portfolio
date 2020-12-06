@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="jumbotron text-center">
+<div class="jumbotron" style="background-image: url(https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg); background-size: 100%;">
   <h1>SAT Practice Question: {{ question.id }} </h1>
 </div>
 <div class="ex2">
@@ -15,7 +15,7 @@
     <p>{{ question.passage }}</p>
   </div>
 <div class="column" style="background-color:#bbb;">
-    <h1>Answer for Question:</h1>
+    <h1>Answer for Question: </h1>
 <h1>{{ question.questions_text }}</h1>
 <p>Your Choice was: </p>
 <ul>
@@ -24,6 +24,21 @@
     <li>&#9644; This answer was: {{ choice.correct }}</li>
     <li>&#9677; Explanation: {{ choice.explain }}</li>
 {% endfor %}
+
+<br>
+<br>
+
+<button onclick="goBack()">Go Back</button>
+
+<a href="details" class="next">Next Question</a>
+
+<script>
+
+function goBack() {
+  window.history.go(-1);
+}
+</script>
+
 </ul>
 </div>
 </div>

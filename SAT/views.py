@@ -13,12 +13,6 @@ def test1(request):
     return render(request, 'index/test1.html', {})
 
 
-def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    context = {'latest_question_list': latest_question_list}
-    return render(request, 'index/index.html', context)
-
-
 def test2(request):
     return render(request, 'index/test2.html', {})
 
@@ -76,6 +70,3 @@ def result(request, question_id):
         })
     else:
         return HttpResponseRedirect(reverse('results', args=(question.id,)))
-
-
-

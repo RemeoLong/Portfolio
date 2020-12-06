@@ -44,9 +44,3 @@ class Choice(models.Model):
     def get_answer(self):
         return self.choices_set.filter(is_answer=True)
 
-
-
-
-
-
-
