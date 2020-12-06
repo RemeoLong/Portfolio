@@ -21,7 +21,7 @@
 <ul>
 {% for choice in question.choice_set.all %} <br>
     <li>&#9658; {{ choice.choice_text }}</li>
-    <li>&#9644; This answer was: {{ choice.correct }}</li>
+    <li>&#9644; This answer was: <b>{{ choice.correct }}</b></li>
     <li>&#9677; Explanation: {{ choice.explain }}</li>
 {% endfor %}
 
