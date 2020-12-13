@@ -18,12 +18,12 @@
 h1 {
   font-size: 50px;
   text-align: center;
-  color: pink;
+  color: black;
   font-family: 'lobster';
 }
 
 h5 {
-  font-size: 40px;
+  font-size: 60px;
   text-align: center;
   color: white;
   font-family: 'lobster';
@@ -39,30 +39,22 @@ body {
 
 /* Style the header */
 header1 {
-  background: url(https://media.giphy.com/media/MZXUrqcxb4HkJk6ic2/giphy.gif);
+  background: url(https://res.cloudinary.com/springboard-images/image/upload/q_auto,f_auto,fl_lossy/wordpress/2019/07/sb-blog-programming.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
   float: left;
-  width: 15%;
+  width: 100%;
   padding: 20px;
   text-align: center;
   color: white;
   height: 150px;
 }
 
-header2 {
-  background: url(https://media.giphy.com/media/K9bdJrL8fHG24/giphy.gif) no-repeat 100%;
-  float: left;
-  text-align: center;
-  width: 85%;
-  padding: 20px;
-  height: 150px;
-  font-size: 50px;
-}
-
 /* Create two columns/boxes that floats next to each other */
 nav {
   float: left;
   width: 15%;
-  height: 700px;
+  height: 780px;
   background: url('static/css/wave.jpg') no-repeat 100%;
   padding: 20px;
   -webkit-background-size: 100% 100%;
@@ -84,8 +76,8 @@ article {
   text-align: center;
   padding: 20px;
   width: 85%;
-  background-color: #f1f1f1;
-  height: 700px;
+  background-color: #C0C0C0;
+  height: 780px;
   font-size: 25px;
   -webkit-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
@@ -98,14 +90,6 @@ section:after {
   content: "";
   display: table;
   clear: both;
-}
-
-/* Style the footer */
-footer {
-  background-color: #777;
-  padding: 8px;
-  text-align: center;
-  color: white;
 }
 
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
@@ -123,14 +107,9 @@ footer {
 <body>
 
 <header1>
-  <h5>Long Q. Tran </h5>
-  <p> Portfolio</p>
+  <h5>Long Q. Tran</h5>
+  <p>Portfolio Page</p>
 </header1>
-<header2>
-  <h1>Work In Progress</h1>
-  <p>Under Construction</p>
-
-</header2>
 
 <br>
 <section>
@@ -151,9 +130,5 @@ footer {
     {% block body %}
     {% endblock %}
   </section>
-<footer>
-  <p>Footer</p>
-</footer>
-
 </body>
 </html>

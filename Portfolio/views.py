@@ -5,6 +5,10 @@ def home(request):
     return render(request, 'index/home.html', {})
 
 
+def sub(request):
+    return render(request, 'index/sub.html', {})
+
+
 def work(request):
     return render(request, 'index/experience.html', {})
 

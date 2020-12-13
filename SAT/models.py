@@ -34,6 +34,7 @@ class Choice(models.Model):
     explain = models.ForeignKey(Explanation, on_delete=models.CASCADE, default="")
     choice_text = models.CharField(max_length=200)
     correct = models.CharField(max_length=10, choices=correct_choices, default='Incorrect')
+    answer = models.CharField(max_length=500, default='')
 
     def __str__(self):
         return self.choice_text

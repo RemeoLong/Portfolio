@@ -1,0 +1,126 @@
+{% load static %}
+<html lang="en">
+
+<head>
+
+  <title>Long's Portfolio</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <style>
+
+header1 {
+  background: url(https://wallpapercave.com/wp/wp2234546.jpg);
+  background-size: 100%;
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: white;
+  height: auto;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  min-height: 640px;
+  height:auto;
+  max-height: 1500px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+  color: white;
+  font-family: 'lobster';
+}
+
+h2 {
+font-size: 35px;
+  text-align: center;
+  color: white;
+  font-family: 'lobster';
+}
+
+h3 {
+font-size: 50px;
+  text-align: center;
+  color: black;
+  font-family: 'lobster';
+}
+
+ul {
+  font-size: 20px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li2 {
+  float: left;
+}
+
+li1 {
+  float: right;
+}
+
+li2 a {
+  display: block;
+  padding: 8px;
+  background-color: #ffffff00;
+  color: white;
+}
+
+li1 a {
+  display: block;
+  padding: 8px;
+  background-color: #ffffff00;
+  color: white;
+}
+
+p {
+color: white;
+font-size: 25px;
+}
+
+{% block head %}
+{% endblock %}
+      </style>
+</head>
+
+<body>
+
+<header1>
+
+<ul>
+  <li2><a href="https://remeolong.pythonanywhere.com">About</a></li2>
+  <li2><a href="https://remeolong.pythonanywhere.com/Experience">Experience</a></li2>
+  <li2><a href="https://remeolong.pythonanywhere.com/Projects">Projects</a></li2>
+  <li1><a href="https://twitter.com/LongRemeo" class="fa fa-twitter" style="font-size:35px"></a></li1>
+  <li1><a href="https://www.linkedin.com/in/long-tran-45949a7a/" class="fa fa-linkedin" style="font-size:35px"></a></li1>
+  <li1><a href="https://github.com/RemeoLong" class="fa fa-github" style="font-size:35px"></a></li1>
+  <li1><a href="mailto:remeolongquangtran@gmail.com" class="fa fa-envelope" style="font-size:35px"></a></li1>
+ </ul>
+  <h1>Long Q. Tran</h1>
+
+{% block body %}
+    {% endblock %}
+
+</header1>
+
+
+</body>

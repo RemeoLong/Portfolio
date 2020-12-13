@@ -10,54 +10,30 @@
   <h1>SAT Practice Question: {{ question.id }} </h1>
 </div>
 
-<h1>Timer : <span id="time">52:00</span></h1></div>
 <div class="ex2">
 <div class="row">
   <div class="column" style="background-color:#aaa;">
     <h1>Passage / Equation:</h1>
     <p>{{ question.passage }}</p>
   </div>
+    <br>
+    <br>
 <div class="column" style="background-color:#bbb;">
 <h1>Question: </h1>
 <h2>{{ question.questions_text }}</h2>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'results' question.id %}" method="post">
+<form action="{% url 'answer' question.id %}" method="post">
 {% csrf_token %}
 {% for choice in question.choice_set.all %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
     <label for="choice{{ forloop.counter }}"><p>{{ choice.choice_text }}</p></label><br>
 {% endfor %}
-<input type="submit" value="Submit">
+<input type="submit" value="Answer">
 </form>
 </div>
   </div>
 </div>
-
-<script>
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-}
-
-window.onload = function () {
-    var fiveMinutes = 60 * 52,
-        display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
-};
-</script>
 
 {% endblock %}
 
