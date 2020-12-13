@@ -15,120 +15,111 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <style>
-h1 {
-  font-size: 50px;
-  text-align: center;
-  color: black;
-  font-family: 'lobster';
-}
 
-h5 {
-  font-size: 60px;
-  text-align: center;
-  color: white;
-  font-family: 'lobster';
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Style the header */
 header1 {
-  background: url(https://res.cloudinary.com/springboard-images/image/upload/q_auto,f_auto,fl_lossy/wordpress/2019/07/sb-blog-programming.png);
-  background-repeat: no-repeat;
+  background: url(https://wallpapercave.com/wp/wp2234546.jpg);
   background-size: 100%;
   float: left;
   width: 100%;
-  padding: 20px;
   text-align: center;
   color: white;
-  height: 150px;
+  height: auto;
 }
 
-/* Create two columns/boxes that floats next to each other */
-nav {
+.column {
   float: left;
-  width: 15%;
-  height: 780px;
-  background: url('static/css/wave.jpg') no-repeat 100%;
-  padding: 20px;
-  -webkit-background-size: 100% 100%;
-  -moz-background-size: 100% 100%;
-  -o-background-size: 100% 100%;
-  position: relative;
+  width: 50%;
+  padding: 10px;
+  min-height: 640px;
+  height:auto;
+  max-height: 1500px;
 }
 
-/* Style the list inside the menu */
-nav ul {
-  list-style-type: none;
-  padding: 0;
-  font-size:30px;
-}
-
-article {
-  background: url('##static/css/oceans.jpg') no-repeat 100%;
-  float: left;
-  text-align: center;
-  padding: 20px;
-  width: 85%;
-  background-color: #C0C0C0;
-  height: 780px;
-  font-size: 25px;
-  -webkit-background-size: 100% 100%;
-  -moz-background-size: 100% 100%;
-  -o-background-size: 100% 100%;
-  position: relative;
-}
-
-/* Clear floats after the columns */
-section:after {
+.row:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-@media (max-width: 600px) {
-  nav, article, header1, header2 {
-    width: 100%;
-    height: auto;
-  }
+h1 {
+  font-size: 50px;
+  text-align: center;
+  color: white;
+  font-family: 'lobster';
+}
+
+h2 {
+font-size: 35px;
+  text-align: center;
+  color: white;
+  font-family: 'lobster';
+}
+
+h3 {
+font-size: 50px;
+  text-align: center;
+  color: black;
+  font-family: 'lobster';
+}
+
+ul {
+  font-size: 20px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li2 {
+  float: left;
+}
+
+li1 {
+  float: right;
+}
+
+li2 a {
+  display: block;
+  padding: 8px;
+  background-color: #ffffff00;
+  color: white;
+}
+
+li1 a {
+  display: block;
+  padding: 8px;
+  background-color: #ffffff00;
+  color: white;
+}
+
+p {
+color: white;
+font-size: 25px;
 }
 
 {% block head %}
 {% endblock %}
-</style>
+      </style>
 </head>
+
 <body>
 
 <header1>
-  <h5>Long Q. Tran</h5>
-  <p>Portfolio Page</p>
+
+<ul>
+  <li2><a href="https://remeolong.pythonanywhere.com">About</a></li2>
+  <li2><a href="https://remeolong.pythonanywhere.com/Experience">Experience</a></li2>
+  <li2><a href="https://remeolong.pythonanywhere.com/Projects">Projects</a></li2>
+  <li1><a href="https://twitter.com/LongRemeo" class="fa fa-twitter" style="font-size:35px"></a></li1>
+  <li1><a href="https://www.linkedin.com/in/long-tran-45949a7a/" class="fa fa-linkedin" style="font-size:35px"></a></li1>
+  <li1><a href="https://github.com/RemeoLong" class="fa fa-github" style="font-size:35px"></a></li1>
+  <li1><a href="mailto:remeolongquangtran@gmail.com" class="fa fa-envelope" style="font-size:35px"></a></li1>
+ </ul>
+  <h1>Long Q. Tran</h1>
+
+{% block body %}
+    {% endblock %}
+
 </header1>
 
-<br>
-<section>
-  <nav>
-    <ul>
-      <li><a href="About">About</a></li>
-      <li><a href="Experience">Work History</a></li>
-      <li><a href="Projects">Projects</a></li>
-      <li><a> Contact Me @:</a></li>
-      <a href="mailto:remeolongquangtran@gmail.com" class="fa fa-envelope" style="font-size:35px"></a>
-      <a href="https://www.linkedin.com/in/long-tran-45949a7a/" class="fa fa-linkedin" style="font-size:35px"></a>
-      <a href="https://github.com/RemeoLong" class="fa fa-github" style="font-size:35px"></a>
-      <a href="https://twitter.com/LongRemeo" class="fa fa-twitter" style="font-size:35px"></a>
-    </ul>
-  </nav>
 
-  <br>
-    {% block body %}
-    {% endblock %}
-  </section>
-</body>
-</html>
