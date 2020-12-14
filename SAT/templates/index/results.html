@@ -19,7 +19,8 @@
 <h1>{{ question.questions_text }}</h1>
 <p>Your Choice was: {{ choice.selected_answer }}</p>
 <ul>
-{% for choice in question.choice_set.all %} <br>
+{% for choice in question.choice_set.all %}
+    <br>
     <li>&#9658; {{ choice.choice_text }}</li>
     <li>&#9644; This answer was: <b>{{ choice.correct }}</b></li>
     <li>&#9677; Explanation: {{ choice.explain }}</li>
@@ -27,16 +28,20 @@
 
 <br>
 <br>
+    <button onclick="changePage(-1);">Prev Question</button>
+    <button onclick="changePage(1);">Next Question</button>
 
-<button onclick="goBack()">Go Back</button>
 
-<a href="http://remeolong.pythonanywhere.com/SAT/page+1" class="next">Next Question</a>
+    <script>
 
-<script>
-
-function goBack() {
-  window.history.go(-1);
+var currentPage = 1;
+var maxPage = 1000;
+const changePage = (num) => {
+  let pageNum = currentPage + num
+  currentPage = pageNum < 1 ? 1 : pageNum > maxPage ? maxPage : pageNum;
+  window.location = `http://127.0.0.1:8000/SAT/${currentPage}`;
 }
+
 </script>
 
 </ul>
