@@ -39,7 +39,7 @@ var maxPage = 1000;
 const changePage = (num) => {
   let pageNum = currentPage + num
   currentPage = pageNum < 1 ? 1 : pageNum > maxPage ? maxPage : pageNum;
-  window.location = `http://127.0.0.1:8000/SAT/${currentPage}`;
+  window.location = `http://remeolong.pythonanywhere.com/SAT/${currentPage}`;
 }
 
 </script>
