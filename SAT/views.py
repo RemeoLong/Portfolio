@@ -55,12 +55,13 @@ def detail(request, question_id):
     except Question.DoesNotExist:
         raise Http404("Sorry, Question does not exist")
     return render(request, 'index/details.html', {'question': question})
-#need to add a "submit" request function under details so we know what the user selected as their choice.#
 
 
 def result(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'index/results.html', {'question': question})
+    choice = question.choice_set.all().first()
+    context = {'question': question, 'choice': choice}
+    return render(request, 'index/results.html', context)
 
 
 def answer(request, question_id):
@@ -68,7 +69,6 @@ def answer(request, question_id):
     try:
         selected_answer = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
-        # Redisplay the question voting form.
         return render(request, 'index/details.html', {
             'question': question,
             'error_message': "Please make a Valid Selection.",
