@@ -1,6 +1,4 @@
-import datetime
 from django.db import models
-from django.utils import timezone
 
 
 class Passage(models.Model):
@@ -34,14 +32,13 @@ class Choice(models.Model):
     explain = models.ForeignKey(Explanation, on_delete=models.CASCADE, default="")
     choice_text = models.CharField(max_length=200)
     correct = models.CharField(max_length=10, choices=correct_choices, default='Incorrect')
-    answer = models.CharField(max_length=500, default='')
+    answer = models.CharField(blank=True, max_length=500, default='')
 
     def __str__(self):
         return self.choice_text
 
     def check_answer(self, choice):
-        return self.choices_set.filter(id=choice.id, is_answer=True).exists()
+        return self.choices_set.filter(id=choice.id, correct='Correct').exists()
 
     def get_answer(self):
-        return self.choices_set.filter(is_answer=True)
-
+        return self.choices_set.filter(correct='Correct')

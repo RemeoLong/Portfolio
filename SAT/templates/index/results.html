@@ -17,16 +17,15 @@
 <div class="column" style="background-color:#bbb;">
     <h1>Answer for Question: </h1>
 <h1>{{ question.questions_text }}</h1>
-<p>Your Choice was: {{ choice.answer }} <br>
-    {{ choice.selected_answer }} <br>
-    {{ selected_answer }}</p>
-<ul>
+
 {% for choice in question.choice_set.all %}
-    <br>
+    {% if choice.answer %}
+    <p>Your Choice was: {{ choice.answer }} </p>
     <li>&#9658; {{ choice.choice_text }}</li>
     <li>&#9644; This answer was: <b>{{ choice.correct }}</b></li>
     <li>&#9677; Explanation: {{ choice.explain }}</li>
-{% endfor %}
+{% endif %}
+    {% endfor %}
 
 <br>
 <br>

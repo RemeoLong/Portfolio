@@ -33,14 +33,6 @@ def test6(request):
     return render(request, 'index/test6.html', {})
 
 
-def test7(request):
-    return render(request, 'index/test7.html', {})
-
-
-def test8(request):
-    return render(request, 'index/test8.html', {})
-
-
 def final(request):
     return render(request, 'index/final.html', {})
 
@@ -71,8 +63,9 @@ def answer(request, question_id):
     except (KeyError, Choice.DoesNotExist):
         return render(request, 'index/details.html', {
             'question': question,
-            'error_message': "Please make a Valid Selection.",
+            'error_message': "A Choice was not selected. Please make a selection.",
         })
     else:
+        selected_answer.answer = selected_answer.choice_text
         selected_answer.save()
         return HttpResponseRedirect(reverse('results', args=(question.id,)))
