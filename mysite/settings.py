@@ -58,7 +58,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'django.core.mail.backends.console.EmailBackend'
 ]
 
 ROOT_URLCONF = 'mysite.urls'

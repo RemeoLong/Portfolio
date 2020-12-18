@@ -1,0 +1,34 @@
+{% extends 'SATbase.html' %}
+{% load static %}
+
+{% block head %}
+<title>Registration</title>
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron" style="background-image: url(https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg); background-size: 100%;">
+  <h1>Registration</h1>
+</div>
+<div class="ex1" style="background-image: url(https://previews.123rf.com/images/nexusplexus/nexusplexus1208/nexusplexus120800388/14850365-image-of-light-blue-planet-earth-against-technology-background.jpg); no-repeat;
+  background-size: 100%;">
+
+<h2>Registration Form: </h2>
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <button type="submit">Register</button>
+  </form>
+
+</div>
+{% endblock %}

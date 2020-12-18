@@ -22,6 +22,7 @@ urlpatterns = [
     path('<int:question_id>/results/', views.result, name='results'),
     path('<int:question_id>/answer/', views.answer, name='answer'),
     path('__debug__/', include(debug_toolbar.urls)),
+    path('register', views.register, name='Register'),
 ]
 
 

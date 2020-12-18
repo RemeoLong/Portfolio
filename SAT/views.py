@@ -2,7 +2,9 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 from .models import Question, Choice, Passage, Explanation
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, authenticate
 
 
 def home(request):
@@ -69,3 +71,21 @@ def answer(request, question_id):
         selected_answer.answer = selected_answer.choice_text
         selected_answer.save()
         return HttpResponseRedirect(reverse('results', args=(question.id,)))
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('http://remeolong.pythonanywhere.com/SAT/home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'index/register.html', {'form': form})
+
+
+
