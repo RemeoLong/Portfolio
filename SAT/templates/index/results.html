@@ -20,7 +20,7 @@
 
 {% for choice in question.choice_set.all %}
     {% if choice.answer %}
-    <p>Your Choice was: {{ choice.answer }} </p>
+    <br><p>Your Choice was: {{ choice.answer }} </p><br>
     <li>&#9658; {{ choice.choice_text }}</li>
     <li>&#9644; This answer was: <b>{{ choice.correct }}</b></li>
     <li>&#9677; Explanation: {{ choice.explain }}</li>
@@ -50,4 +50,3 @@ const changePage = (num) => {
 </div>
 </div>
 {% endblock %}
-

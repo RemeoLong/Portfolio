@@ -36,16 +36,19 @@ ul {
   padding: 0;
   overflow: hidden;
 }
-
-li3 {
-  float: left;
+li1 {
+  float: center;
 }
 
 li2 {
   float: right;
 }
 
-li3 a {
+li3 {
+  float: left;
+}
+
+li1 a {
   display: block;
   padding: 8px;
   background-color: #dddddd;
@@ -56,6 +59,13 @@ li2 a {
   padding: 8px;
   background-color: #dddddd;
 }
+
+li3 a {
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
+}
+
 
 {% block head %}
 {% endblock %}
@@ -73,8 +83,14 @@ li2 a {
   <li2><a href="https://remeolong.pythonanywhere.com/SAT/practice_test_2">Test 2</a></li2>
   <li2><a href="https://remeolong.pythonanywhere.com/SAT/practice_test_1">Test 1</a></li2>
   <li2><a href="https://remeolong.pythonanywhere.com/SAT/tips">Tips & Tricks</a></li2>
-</ul>
 
+{% if user.is_authenticated %}
+  <li2><a href="https://remeolong.pythonanywhere.com/accounts/logout/">{{ user.get_username }}: Log Out</a></li2>
+{% else %}
+  <li2><a href="https://remeolong.pythonanywhere.com/accounts/login/">Log In</a></li2>
+  <li3><a href="">Register</a></li3>
+{% endif %}
+</ul>
 {% block body %}
 {% endblock %}
 </body>

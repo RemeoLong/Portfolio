@@ -9,4 +9,5 @@ urlpatterns = [
     path('Projects', views.projects, name='Projects'),
     path('About', views.about, name='About'),
     path('SAT', include('SAT.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

@@ -1,0 +1,21 @@
+{% extends "SATbase.html" %}
+{% load static %}
+
+{% block head %}
+<title>Log Out</title>
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron" style="background-image: url(https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg); background-size: 100%;">
+  <h1>Log Out Page</h1>
+</div>
+
+<div class="ex1" style="background-image: url(https://previews.123rf.com/images/nexusplexus/nexusplexus1208/nexusplexus120800388/14850365-image-of-light-blue-planet-earth-against-technology-background.jpg); no-repeat;
+  background-size: 100%;">
+
+  <p>You have logged out of our system. </p>
+  <a href="{% url 'login'%}">Click here to login again.</a>
+
+</div>
+
+{% endblock %}
