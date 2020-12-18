@@ -1,4 +1,3 @@
-import debug_toolbar
 from django.conf import settings
 from django.urls import include, path
 from . import views
@@ -21,7 +20,6 @@ urlpatterns = [
     path('<int:question_id>/', views.detail, name='detail'),
     path('<int:question_id>/results/', views.result, name='results'),
     path('<int:question_id>/answer/', views.answer, name='answer'),
-    path('__debug__/', include(debug_toolbar.urls)),
     path('register', views.register, name='Register'),
 ]
 
