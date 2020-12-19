@@ -86,6 +86,3 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'index/register.html', {'form': form})
-
-
-

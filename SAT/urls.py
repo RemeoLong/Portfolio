@@ -22,6 +22,3 @@ urlpatterns = [
     path('<int:question_id>/answer/', views.answer, name='answer'),
     path('register', views.register, name='Register'),
 ]
-
-
-
