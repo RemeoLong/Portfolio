@@ -63,7 +63,7 @@ class Choice(models.Model):
 
 
 class Answer(models.Model):
-    UserID = models.OneToOneField(User, on_delete=models.CASCADE)
+    UserID = models.OneToOneField(User, on_delete=models.CASCADE, default="")
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     answer = models.CharField(blank=True, max_length=500, default='')
 

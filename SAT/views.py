@@ -82,7 +82,7 @@ def register(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect("{% url 'SAT_Home' %}")
+            return redirect('http://remeolong.pythonanywhere.com/SAT/home')
     else:
         form = UserCreationForm()
     return render(request, 'index/register.html', {'form': form})
