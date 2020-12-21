@@ -73,22 +73,22 @@ li3 a {
 </head>
 <body>
 <ul>
-  <li3><a href="https://remeolong.pythonanywhere.com/Projects">Back to Projects</a></li3>
-  <li3><a href="https://remeolong.pythonanywhere.com">Portfolio Home</a></li3>
-  <li3><a href="https://remeolong.pythonanywhere.com/SAT/home">SAT Home</a></li3>
-  <li2><a href="https://remeolong.pythonanywhere.com/SAT/practice_test_6">Test 6</a></li2>
-  <li2><a href="https://remeolong.pythonanywhere.com/SAT/practice_test_5">Test 5</a></li2>
-  <li2><a href="https://remeolong.pythonanywhere.com/SAT/practice_test_4">Test 4</a></li2>
-  <li2><a href="https://remeolong.pythonanywhere.com/SAT/practice_test_3">Test 3</a></li2>
-  <li2><a href="https://remeolong.pythonanywhere.com/SAT/practice_test_2">Test 2</a></li2>
-  <li2><a href="https://remeolong.pythonanywhere.com/SAT/practice_test_1">Test 1</a></li2>
-  <li2><a href="https://remeolong.pythonanywhere.com/SAT/tips">Tips & Tricks</a></li2>
+  <li3><a href="{% url 'Projects' %}">Back to Projects</a></li3>
+  <li3><a href="{% url 'About' %}">Portfolio Home</a></li3>
+  <li3><a href="{% url 'SAT_Home' %}">SAT Home</a></li3>
+  <li2><a href="{% url 'Practice_Test_6' %}">Test 6</a></li2>
+  <li2><a href="{% url 'Practice_Test_5' %}">Test 5</a></li2>
+  <li2><a href="{% url 'Practice_Test_4' %}">Test 4</a></li2>
+  <li2><a href="{% url 'Practice_Test_3' %}">Test 3</a></li2>
+  <li2><a href="{% url 'Practice_Test_2' %}">Test 2</a></li2>
+  <li2><a href="{% url 'Practice_Test_1' %}">Test 1</a></li2>
+  <li2><a href="{% url 'Tips & Tricks' %}">Tips & Tricks</a></li2>
 
 {% if user.is_authenticated %}
-  <li2><a href="https://remeolong.pythonanywhere.com/accounts/logout/">{{ user.get_username }}: Log Out</a></li2>
+  <li2><a href="{% url 'logout' %}">{{ user.get_username }}: Log Out</a></li2>
 {% else %}
-  <li2><a href="https://remeolong.pythonanywhere.com/accounts/login/">Log In</a></li2>
-  <li3><a href="http://remeolong.pythonanywhere.com/SAT/register">Register</a></li3>
+  <li2><a href="{% url 'login' %}">Log In</a></li2>
+  <li3><a href="{% url 'Register' %}">Register</a></li3>
 {% endif %}
 </ul>
 {% block body %}
