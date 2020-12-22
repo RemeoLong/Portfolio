@@ -1,0 +1,29 @@
+{% extends 'SATbase.html' %}
+{% load static %}
+
+{% block head %}
+<title>Test 2</title>
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron" style="background-image: url(https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg); background-size: 100%;">
+  <h1>SAT Practice Tests</h1>
+</div>
+
+<div class="ex1" style="background-image: url(https://harvardready.com/res/img/practicetest_intro.png); no-repeat;
+  background-size: 100%;">
+
+<h1>Choose from any of our 6 SAT Practice Test:</h1>
+  <br>
+  <h2>Each Test has 4 Section:</h2>
+    <h2>Reading, Writing and Language, Math - No Calculator, and Math - Calculator</h2>
+<br>
+    <ul>
+        <h2><a href="{% url 'Test' %}">Practice Test 1</a></h2>
+<h2><a href="{% url 'Test' %}">Practice Test 2</a></h2>
+<h2><a href="{% url 'Test' %}">Practice Test 3</a></h2>
+<h2><a href="{% url 'Test' %}">Practice Test 4</a></h2>
+<h2><a href="{% url 'Test' %}">Practice Test 5</a></h2>
+<h2><a href="{% url 'Test' %}">Practice Test 6</a></h2>
+    </ul>
+{% endblock %}

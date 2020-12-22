@@ -4,19 +4,19 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
-class Test(models.Model):
-    test = models.CharField(max_length=20)
-
-    def __str__(self):
-        return self.test
-
-
 class Section(models.Model):
-    test = models.ForeignKey(Test, on_delete=models.CASCADE)
     section = models.CharField(max_length=30)
 
     def __str__(self):
         return self.section
+
+
+class Test(models.Model):
+    section = models.ForeignKey(Section, on_delete=models.CASCADE, default="")
+    test = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.test
 
 
 class Passage(models.Model):
@@ -64,7 +64,7 @@ class Choice(models.Model):
 
 class Answer(models.Model):
     UserID = models.OneToOneField(User, on_delete=models.CASCADE, default="")
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, default="")
     answer = models.CharField(blank=True, max_length=500, default='')
 
 
