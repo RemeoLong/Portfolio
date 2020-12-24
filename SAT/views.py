@@ -4,6 +4,7 @@ from .models import Question, Choice, Passage, Explanation, Test, Section
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
+from django.views.generic.list import ListView
 
 
 def home(request):
@@ -12,6 +13,22 @@ def home(request):
 
 def tips(request):
     return render(request, 'index/tips.html', {})
+
+
+def reading(request, test_id):
+    return render(request, 'index/reading.html', {})
+
+
+def writing(request, test_id):
+    return render(request, 'index/writing.html', {})
+
+
+def mathnc(request, test_id):
+    return render(request, 'index/mathnc.html', {})
+
+
+def math(request, test_id):
+    return render(request, 'index/math.html', {})
 
 
 def register(request):
@@ -85,3 +102,11 @@ def answer(request, question_id):
 
 def final(request):
     return render(request, 'index/final.html', {})
+
+
+class TestListView(ListView):
+    template_name = 'SAT/index/test.html'
+    model = Test
+    context_object_name = 'test'
+
+

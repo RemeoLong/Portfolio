@@ -1,0 +1,30 @@
+{% extends 'SATbase.html' %}
+{% load static %}
+
+{% block head %}
+<title>Test 2</title>
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron" style="background-image: url(https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg); background-size: 100%;">
+  <h1>SAT Practice Test</h1>
+</div>
+
+<div class="ex1" style="background-image: url(https://previews.123rf.com/images/nexusplexus/nexusplexus1208/nexusplexus120800388/14850365-image-of-light-blue-planet-earth-against-technology-background.jpg); no-repeat;
+  background-size: 100%;">
+
+
+<h1>Math (No Calculator) Section</h1>
+        <h2>Directions:</h2>
+        <h3>For questions 1-15, solve each problem, choose the best answer from the choices provided, and fill in the
+            corresponding circle on your answer sheet.</h3>
+        <h3>For questions 16-20, solve the problem and enter your answer in the grid on the answer sheet. Please refer to
+            the directions before question 16 on how to enter your answers in the grid. You may use any available space
+            in your test booklet for scratch work.</h3>
+
+<br>
+    <p>(When you are ready, Click the Button below to Begin)</p>
+    <button onclick="changePage(-1);">Begin Test</button>
+
+</div>
+    {% endblock %}

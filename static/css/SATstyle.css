@@ -11,13 +11,17 @@ div.ex2 {
 h1 {
   font-size: 100px;
   text-align: center;
-  color: ;
 }
 
 h2 {
 font-size: 100px;
   text-align: left;
-  color: ;
+}
+
+h3 {
+font-size: 75px;
+  text-align: left;
+  color: grey;
 }
 
 .footer {

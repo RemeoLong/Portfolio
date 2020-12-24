@@ -4,19 +4,19 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
-class Section(models.Model):
-    section = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.section
-
-
 class Test(models.Model):
-    section = models.ForeignKey(Section, on_delete=models.CASCADE, default="")
     test = models.CharField(max_length=20)
 
     def __str__(self):
         return self.test
+
+
+class Section(models.Model):
+    test = models.ForeignKey(Test, on_delete=models.CASCADE, default="")
+    section = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.section
 
 
 class Passage(models.Model):
@@ -71,7 +71,8 @@ class Answer(models.Model):
 class TotalScore(models.Model):
     User = models.ForeignKey(User, on_delete=models.CASCADE)
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
-    score = models.CharField(max_length=100)
+    section = models.ForeignKey(Section, on_delete=models.CASCADE, default='')
+    score = models.IntegerField(default=0)
 
     @receiver(post_save, sender=User)
     def create_user_totalscore(sender, instance, created, **kwargs):
