@@ -25,9 +25,4 @@ urlpatterns = [
     path('<int:question_id>/results/', views.result, name='results'),
     path('<int:question_id>/answer/', views.answer, name='answer'),
 
-
-#  path('Test/<int:test_id>[1-6]+/Math/<int:section_id>[1-6]+/Question/<int:question_id>/', views., name=''),
-#  path('<int:question_id>/', views.detail, name='detail'),
-
-
 ]
