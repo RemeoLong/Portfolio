@@ -1,10 +1,12 @@
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
+from django.views import generic
+
 from .models import Question, Choice, Passage, Explanation, Test, Section
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
-from django.views.generic.list import ListView
+from django.views.generic import ListView
 
 
 def home(request):
@@ -46,8 +48,18 @@ def register(request):
     return render(request, 'index/register.html', {'form': form})
 
 
-def test(request):
-    return render(request, 'index/test.html', {})
+class TestList(ListView):
+    model = Section
+    template_name = 'SAT/test_list.html'
+    context_object_name = 'test_list'
+
+    def get_queryset(self):
+        return Section.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(TestList, self).get_context_data(**kwargs)
+        context['TestList'] = Test.objects.all()
+        return context
 
 
 def section(request, test_id):
@@ -104,9 +116,14 @@ def final(request):
     return render(request, 'index/final.html', {})
 
 
-class TestListView(ListView):
-    template_name = 'SAT/index/test.html'
-    model = Test
-    context_object_name = 'test'
+
+
+
+
+
+
+
+
+
 
 

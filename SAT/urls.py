@@ -1,13 +1,15 @@
 from django.conf import settings
 from django.urls import include, path
 from . import views
-from .views import TestListView
+from .views import TestList
+
 
 urlpatterns = [
     path('home', views.home, name='SAT_Home'),
     path('tips', views.tips, name='Tips & Tricks'),
     path('register', views.register, name='Register'),
-    path('Test', views.test, name='Test'),
+    path('TestList', TestList.as_view(), name='TestList'),
+
     path('Test/<int:test_id>/', views.quiz, name='TestNum'),
     path('Test/<int:test_id>/Section', views.section, name='Section'),
 
@@ -24,8 +26,6 @@ urlpatterns = [
     path('<int:question_id>/answer/', views.answer, name='answer'),
 
 
-#    path('Test', TestListView.as_view(), name='Test'),
-   path('Test/<int:test_id>/', TestListView.as_view(), name='TestNum'),
 #  path('Test/<int:test_id>[1-6]+/Math/<int:section_id>[1-6]+/Question/<int:question_id>/', views., name=''),
 #  path('<int:question_id>/', views.detail, name='detail'),
 

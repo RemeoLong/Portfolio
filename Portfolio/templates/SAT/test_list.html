@@ -14,14 +14,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <title>Test List</title>
 <style>
 .column {
   float: left;
-  width: 50%;
-  padding: 10px;
-  min-height: 640px;
+  width: 33.33%;
+  padding: 20px;
   height:auto;
-  max-height: 1500px;
+  text-align: center;
 }
 
 .row:after {
@@ -66,9 +66,10 @@ li3 a {
   background-color: #dddddd;
 }
 
+p {
+  text-align: center;
+}
 
-{% block head %}
-{% endblock %}
 </style>
 </head>
 <body>
@@ -87,9 +88,65 @@ li3 a {
     <li2><a href="{% url 'Tips & Tricks' %}">Tips & Tricks</a></li2>
     <li2><a href="{% url 'TestList' %}">Practice Test</a></li2>
 </ul>
+<div class="jumbotron" style="background-image: url(https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg); background-size: 100%;">
+  <h1>SAT Practice Tests</h1>
+</div>
+<div class="ex1" style="background-image: url(https://previews.123rf.com/images/nexusplexus/nexusplexus1208/nexusplexus120800388/14850365-image-of-light-blue-planet-earth-against-technology-background.jpg);
+no-repeat; background-size: 100%;">
+    <br>
+<h1>There are 6 Practice Tests, each with 4 Section.</h1>
+    <p>(Click on a Section to Begin)</p>
 
-{% block body %}
-{% endblock %}
+    <div class="row">
+  <div class="column">
+ <h1>Test 1:</h1>
+{% for section in test_list %}
+{% if section.test.id == 1 %}
+<h3><a href=" {{ section }} ">{{ section }}</a></h3>
+    {% endif %}
+{% endfor %}
+<br>
+       <h1>Test 4:</h1>
+{% for section in test_list %}
+{% if section.test.id == 4 %}
+<h3><a href=" {{ section }} ">{{ section }}</a></h3>
+    {% endif %}
+{% endfor %}
+
+</div>
+
+      <div class="column">
+    <h1>Test 2:</h1>
+{% for section in test_list %}
+{% if section.test.id == 2 %}
+<h3><a href=" {{ section }} ">{{ section }}</a></h3>
+    {% endif %}
+{% endfor %}
+<br>
+          <h1>Test 5:</h1>
+{% for section in test_list %}
+{% if section.test.id == 5 %}
+<h3><a href=" {{ section }} ">{{ section }}</a></h3>
+    {% endif %}
+{% endfor %}
+
+</div>
+    <div class="column">
+    <h1>Test 3</h1>
+{% for section in test_list %}
+{% if section.test.id == 3 %}
+<h3><a href=" {{ section }} ">{{ section }}</a></h3>
+    {% endif %}
+{% endfor %}
+<br>
+    <h1>Test 6:</h1>
+{% for section in test_list %}
+{% if section.test.id == 6 %}
+<h3><a href=" {{ section }} ">{{ section }}</a></h3>
+    {% endif %}
+{% endfor %}
+</div>
+</div>
 
 </body>
 
@@ -101,10 +158,13 @@ li3 a {
   <li2><a href="terms">Terms of Use</a></li2>
   <li2><a href="policy">Privacy Policy</a></li2>
 
-{% block foot %}
-{% endblock %}
 
       </ul>
    </div>
 </footer>
 </html>
+
+
+
+
+
