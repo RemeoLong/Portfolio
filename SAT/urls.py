@@ -5,10 +5,10 @@ from .views import TestList
 
 app_name = "SAT"
 urlpatterns = [
-    path('home', views.home, name='SAT_Home'),
-    path('tips', views.tips, name='Tips & Tricks'),
-    path('register', views.register, name='Register'),
-    path('TestList', TestList.as_view(), name='TestList'),
+    path('/home', views.home, name='SAT_Home'),
+    path('/tips', views.tips, name='Tips & Tricks'),
+    path('/register', views.register, name='Register'),
+    path('/TestList', TestList.as_view(), name='TestList'),
 
     path('/Test/<int:test_id>/', views.quiz, name='TestNum'),
     path('/Test/<int:test_id>/Section', views.section, name='Section'),

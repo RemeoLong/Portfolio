@@ -142,3 +142,5 @@ STATICFILES_FINDERS = [
 ]
 
 LOGIN_REDIRECT_URL = 'http://remeolong.pythonanywhere.com/SAT/home'
+
+APPEND_SLASH = False

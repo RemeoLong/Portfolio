@@ -20,7 +20,7 @@ font-size: 100px;
 
 h3 {
 font-size: 75px;
-  text-align: left;
+  text-align: center;
   color: grey;
 }
 
@@ -49,4 +49,7 @@ font-size: 75px;
   clear: both;
 }
 
+p {
+  text-align: center;
+}
 
