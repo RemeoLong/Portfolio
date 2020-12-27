@@ -34,7 +34,7 @@ class Explanation(models.Model):
 
 
 class Question(models.Model):
-    test = models.ForeignKey(Test, on_delete=models.CASCADE)
+    test = models.ForeignKey(Test, on_delete=models.CASCADE, default="")
     section = models.ForeignKey(Section, on_delete=models.CASCADE)
     passage = models.ForeignKey(Passage, on_delete=models.CASCADE)
     questions_text = models.CharField(max_length=400)
