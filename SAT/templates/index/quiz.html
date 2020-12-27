@@ -2,7 +2,32 @@
 {% load static %}
 
 {% block head %}
-<title>Test 1</title>
+<title>TEST {{ test.id }}</title>
+{% endblock %}
+
+{% block style %}
+.column {
+  float: left;
+  width: 25%;
+  padding: 20px;
+  height:auto;
+  text-align: center;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+p {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
 {% endblock %}
 
 {% block body %}
@@ -10,22 +35,67 @@
   <h1>SAT Practice Tests # {{ test.id }} </h1>
 </div>
 
-<div class="ex1" style="background-image: url(https://harvardready.com/res/img/practicetest_intro.png); no-repeat;
+<div class="ex1" style="background-image: url(https://previews.123rf.com/images/nexusplexus/nexusplexus1208/nexusplexus120800388/14850365-image-of-light-blue-planet-earth-against-technology-background.jpg); no-repeat;
   background-size: 100%;">
-
-<h1>This test consist of 4 sections: </h1>
-  <p>Click on the Section to Begin the Test</p>
-  <br>
-  <h2>Reading: 52 questions</h2>
-  <h2>Writing and Language: 44 questions</h2>
-  <h2>Math - No Calculator: 20 questions</h2>
-  <h2>Math - Calculator: 38 questions</h2>
 <br>
-  <p>154 total questions</p>
-  <p>When you are ready, Click on the "Next" button to start. Good Luck! </p>
-<form action="http://remeolong.pythonanywhere.com/SAT/1">
-    <input type="submit" value="Next" />
-</form>
+<h1>This test consist of 4 sections:</h1>
+  <p><b><i>(Click on the Section to Begin)</i></b></p>
+
+<div class="row">
+  <div class="column">
+ <h1><a href="">Reading</a></h1>
+    <p><b>52 Questions within 65 Minutes Time Limit</b></p>
+        <h3>Directions:</h3>
+        <p><b>Each passage or pair of passages is followed by a number of questions. After reading each passage or
+            pair, choose the best answer to each question based on what is stated or implied in the passage or passages
+             and in any accompanying graphics (such as a table or graph).</b></p>
   </div>
+
+  <div class="column">
+<h1><a href="">Writing and Language</a></h1>
+    <p><b>44 Questions within 35 Minutes Time Limit</b></p>
+        <h3>Directions:</h3>
+        <p><b>Each passage below is accompanied by a number of questions. For some questions, you will consider how the
+            passage might be revised to improve the expression of ideas. For other questions, you will consider how the
+            passage might be edited to correct errors in sentence structure, usage, or punctuation. A passage or a
+            question may be accompanied by one or more graphics (such as a table or graph) that you will consider as
+            you make revising and editing decisions.</b></p>
+        <p><b>Some questions will direct you to an underlined portion of a passage. Other questions will direct you to a
+            location in a passage or ask you to think about the passage as a whole.</b></p>
+        <p><b>After reading each passage, choose the answer to each question that most effectively improves the quality of
+            writing in the passage or that makes the passage conform to the conventions of standard written English.
+            Many questions include a “NO CHANGE” option. Choose that option if you think the best choice is to leave the
+            relevant portion of the passage as it is.</b></p>
+</div>
+
+  <div class="column">
+  <h1><a href="">Math - No Calculator</a></h1>
+  <p><b>25 Questions within 20 Minutes Time Limit</b></p>
+        <h3>Directions:</h3>
+        <p><b>For questions 1-15, solve each problem, choose the best answer from the choices provided, and fill in the
+            corresponding circle on your answer sheet.</b></p>
+        <p><b>For questions 16-20, solve the problem and enter your answer in the grid on the answer sheet. Please refer to
+            the directions before question 16 on how to enter your answers in the grid. You may use any available space
+            in your test booklet for scratch work.</b></p>
+</div>
+
+  <div class="column">
+<h1><a href="">Math - Calculator</a></h1>
+    <p><b>38 Questions within 55 Minutes Time Limit</b></p>
+        <h3>Directions:</h3>
+        <p><b>For questions 1-30, solve each problem, choose the best answer from the choices provided, and fill in the
+            corresponding circle on your answer sheet. For questions 31-38, solve the problem and enter your answer in
+            the grid on the answer sheet. Please refer to the directions before question 31 on how to enter your answers
+            in the grid.</b></p>
+        <h3>Notes:</h3>
+<p><strong>1. The use of a calculator is permitted.</strong></p>
+<p><strong>2. All variables and expressions used represent real numbers unless otherwise indicated.</strong></p>
+<p><strong>3. Figures provided in this test are drawn to scale unless otherwise indicated.</strong></p>
+<p><strong>4. All figures lie in a plane unless otherwise indicated.</strong></p>
+<p><strong>5. Unless otherwise indicated, the domain of a given function f is the set of all real numbers x for
+ which f(x) is a real number.</strong></p>
+</div>
+</div>
+</div>
 
 {% endblock %}

@@ -25,7 +25,8 @@
       <p>Please login to see this page.</p>
     {% endif %}
   {% endif %}
-
+<h1>Please enter your Username & Password to Log In</h1>
+  <br>
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <table>
@@ -38,12 +39,13 @@
         <td>{{ form.password }}</td>
       </tr>
     </table>
+    <br>
     <input type="submit" value="login" />
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
 <br>
 
-  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+  <p><a href="{% url 'password_reset' %}">Forgot Password</a>, Click here to Reset</p>
 </div>
 
 {% endblock %}
