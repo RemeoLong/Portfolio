@@ -77,7 +77,7 @@ p {
 <ul>
   <li3><a href="{% url 'Projects' %}">Back to Projects</a></li3>
   <li3><a href="{% url 'About' %}">Portfolio Home</a></li3>
-  <li3><a href="{% url 'SAT_Home' %}">SAT Home</a></li3>
+  <li3><a href="{% url 'SAT:SAT_Home' %}">SAT Home</a></li3>
 
 {% if user.is_authenticated %}
   <li2><a href="{% url 'logout' %}">{{ user.get_username }}: Log Out</a></li2>
@@ -85,8 +85,8 @@ p {
   <li2><a href="{% url 'login' %}">Log In</a></li2>
   <li3><a href="{% url 'Register' %}">Register</a></li3>
 {% endif %}
-    <li2><a href="{% url 'Tips & Tricks' %}">Tips & Tricks</a></li2>
-    <li2><a href="{% url 'TestList' %}">Practice Test</a></li2>
+    <li2><a href="{% url 'SAT:Tips & Tricks' %}">Tips & Tricks</a></li2>
+    <li2><a href="{% url 'SAT:TestList' %}">Practice Test</a></li2>
 </ul>
 <div class="jumbotron" style="background-image: url(https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg); background-size: 100%;">
   <h1>SAT Practice Tests</h1>
@@ -102,14 +102,14 @@ no-repeat; background-size: 100%;">
  <h1>Practice Test 1</h1>
 {% for section in test_list %}
 {% if section.test.id == 1 %}
-<h3><a href=" {{ section }} ">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:TestNum' 1 %} ">{{ section }}</a></h3>
     {% endif %}
 {% endfor %}
 <br>
        <h1>Practice Test 4</h1>
 {% for section in test_list %}
 {% if section.test.id == 4 %}
-<h3><a href=" {{ section }} ">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:TestNum' 4 %} ">{{ section }}</a></h3>
     {% endif %}
 {% endfor %}
 
@@ -119,14 +119,14 @@ no-repeat; background-size: 100%;">
     <h1>Practice Test 2</h1>
 {% for section in test_list %}
 {% if section.test.id == 2 %}
-<h3><a href=" {{ section }} ">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:TestNum' 2 %} ">{{ section }}</a></h3>
     {% endif %}
 {% endfor %}
 <br>
           <h1>Practice Test 5</h1>
 {% for section in test_list %}
 {% if section.test.id == 5 %}
-<h3><a href=" {{ section }} ">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:TestNum' 5 %} ">{{ section }}</a></h3>
     {% endif %}
 {% endfor %}
 
@@ -135,14 +135,14 @@ no-repeat; background-size: 100%;">
     <h1>Practice Test 3</h1>
 {% for section in test_list %}
 {% if section.test.id == 3 %}
-<h3><a href=" {{ section }} ">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:TestNum' 3 %} ">{{ section }}</a></h3>
     {% endif %}
 {% endfor %}
 <br>
     <h1>Practice Test 6</h1>
 {% for section in test_list %}
 {% if section.test.id == 6 %}
-<h3><a href=" {{ section }} ">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:TestNum' 6 %} ">{{ section }}</a></h3>
     {% endif %}
 {% endfor %}
 </div>

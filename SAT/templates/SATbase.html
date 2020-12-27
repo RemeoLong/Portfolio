@@ -76,7 +76,7 @@ li3 a {
 <ul>
   <li3><a href="{% url 'Projects' %}">Back to Projects</a></li3>
   <li3><a href="{% url 'About' %}">Portfolio Home</a></li3>
-  <li3><a href="{% url 'SAT_Home' %}">SAT Home</a></li3>
+  <li3><a href="{% url 'SAT:SAT_Home' %}">SAT Home</a></li3>
 
 {% if user.is_authenticated %}
   <li2><a href="{% url 'logout' %}">{{ user.get_username }}: Log Out</a></li2>
@@ -84,8 +84,8 @@ li3 a {
   <li2><a href="{% url 'login' %}">Log In</a></li2>
   <li3><a href="{% url 'Register' %}">Register</a></li3>
 {% endif %}
-    <li2><a href="{% url 'Tips & Tricks' %}">Tips & Tricks</a></li2>
-    <li2><a href="{% url 'TestList' %}">Practice Test</a></li2>
+    <li2><a href="{% url 'SAT:Tips & Tricks' %}">Tips & Tricks</a></li2>
+    <li2><a href="{% url 'SAT:TestList' %}">Practice Test</a></li2>
 </ul>
 
 {% block body %}
