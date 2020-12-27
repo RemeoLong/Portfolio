@@ -81,7 +81,7 @@ li3 a {
   <li2><a href="{% url 'logout' %}">{{ user.get_username }}: Log Out</a></li2>
 {% else %}
   <li2><a href="{% url 'login' %}">Log In</a></li2>
-  <li3><a href="{% url 'Register' %}">Register</a></li3>
+  <li3><a href="{% url 'SAT:Register' %}">Register</a></li3>
 {% endif %}
     <li2><a href="{% url 'SAT:Tips & Tricks' %}">Tips & Tricks</a></li2>
     <li2><a href="{% url 'SAT:TestList' %}">Practice Test</a></li2>
