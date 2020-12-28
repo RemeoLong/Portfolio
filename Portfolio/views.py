@@ -19,3 +19,7 @@ def about(request):
 
 def projects(request):
     return render(request, 'index/projects.html', {})
+
+
+def new(request):
+    return render(request, 'index/new.html', {})

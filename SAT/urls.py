@@ -11,7 +11,6 @@ urlpatterns = [
     path('/TestList', TestList.as_view(), name='TestList'),
     path('/Test/<int:test_id>/', views.quiz, name='TestNum'),
 
-
     path('/Test/<int:test_id>/Section', views.section, name='Section'),
 
     path('/Test/<int:test_id>/Section/Reading', views.reading, name='Reading'),
