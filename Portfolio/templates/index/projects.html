@@ -1,164 +1,26 @@
-{% extends 'base.html' %}
+{% extends 'new.html' %}
 {% load static %}
 
 {% block head %}
-
-<style>
-
-.flipCard {
-  -webkit-perspective: 600;
-  -ms-perspective: 600;
-  -moz-perspective: 600;
-  -o-perspective: 600;
-   width: 200px;
-   height: 200px;
-   position: relative;
-   margin: 50px auto;
-}
-
-.flipCard .card.flipped {
-  transform:rotatey(-180deg);
-  -ms-transform:rotatey(-180deg); /* IE 9 */
-  -moz-transform:rotatey(-180deg); /* Firefox */
-  -webkit-transform:rotatey(-180deg); /* Safari and Chrome */
-  -o-transform:rotatey(-180deg); /* Opera */
-}
-
-.flipCard .card {
-  width: 50%;
-  height: 35%;
-  -webkit-transform-style: preserve-3d;
-  -webkit-transition: 0.5s;
-  -moz-transform-style: preserve-3d;
-  -moz-transition: 0.5s;
-  -ms-transform-style: preserve-3d;
-  -ms-transition: 0.5s;
-  -o-transform-style: preserve-3d;
-  -o-transition: 0.5s;
-  transform-style: preserve-3d;
-  transition: 0.5s;
-}
-
-.flipCard .card .side {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  cursor: pointer;
-  position: absolute;
-  box-sizing: border-box;
-  z-index: 2;
-  backface-visibility: hidden;  /* W3C */
-  -webkit-backface-visibility: hidden; /* Safari & Chrome */
-  -moz-backface-visibility: hidden; /* Firefox */
-  -ms-backface-visibility: hidden; /* Internet Explorer */
-  -o-backface-visibility: hidden; /* Opera */
-  box-shadow: 0 0 10px rgba(0,0,0,0.6);
-  overflow: auto;
-}
-
-.flipCard .card .back {
-  background: white;
-  color: black;
-  transform:rotatey(-180deg);
-  -ms-transform:rotatey(-180deg); /* IE 9 */
-  -moz-transform:rotatey(-180deg); /* Firefox */
-  -webkit-transform:rotatey(-180deg); /* Safari and Chrome */
-  -o-transform:rotatey(-180deg); /* Opera */
-}
-
-.flipCard .card .front {
-  font-family: Georgia;
-  font-size: 3em;
-  text-align: center;
-  line-height: 160px;
-  background-color: #A9A9A9;
-  border: 5px solid white;
-  color: white;
-}
-
-.flipCard .card .back {
-  background-color: #A9A9A9;
-  border: 5px solid white;
-  text-align: center;
-  color: black;
-  padding-top: 20px;
-  font-family: Georgia;
-  font-size: 2em;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-items: center;
-  align-items: center;
-  grid-gap: 15px;
-}
-
-.flip-card {
-  border-style: hidden;
-  background-color: transparent;
-  width: 120px;
-  height: 120px;
-  perspective: 1000px;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
-}
-
-.flip-card-back {
-  background-color: #222e36ef;
-  color: white;
-  transform: rotateY(180deg);
-}
-</style>
-
 {% endblock %}
 
 {% block body %}
 <h1>Projects: </h1>
 <br>
+<h1><a href="http://forevernails.pythonanywhere.com/">Forever Nails & Spa</a></h1>
 <br>
-<br>
-<br>
-<div class="flipCard">
-  <div class="card" onclick="this.classList.toggle('flipped');">
-    <div class="side front">Forever Nails & Spa</div>
-    <div class="side back"><a href="http://forevernails.pythonanywhere.com/">Web Application:</a><br/>Using Python,
+
+<p>Using Python,
     Django framework, HTML5, CSS, GIT, and Javascript to build an web application for a small business that specialized in Nails
     & Beauty Spa. Current functions & features includes: customer registration and login. Working on adding scheduling
     appointment, employee login, clock in/out, services provided on daily/monthly/yearly basis, owner/admin login,
-    employee's timesheet, and service performed on daily/monthly/yearly basis. </div>
-  </div>
-</div>
+    employee's timesheet, and service performed on daily/monthly/yearly basis. </p>
 
-<div class="flipCard">
-  <div class="card" onclick="this.classList.toggle('flipped');">
-      <div class="side front">SAT Practice Tests</div>
-    <div class="side back"><a href="{% url 'SAT:SAT_Home' %}">Quiz Application:</a><br/>Using Python,
-    Django framework, HTML5, CSS, GIT, and Javascript to build a testing application for SAT preparation. </div>
+
+    <h1><a href="{% url 'SAT:SAT_Home' %}">SAT Practice Tests</a></h1>
+<br>
+<p>Using Python,
+    Django framework, HTML5, CSS, GIT, and Javascript to build a testing application for SAT preparation.</p> </div>
   </div>
 </div>
 

@@ -23,3 +23,7 @@ def projects(request):
 
 def new(request):
     return render(request, 'index/new.html', {})
+
+
+def ii(request):
+    return render(request, 'index/II.html', {})

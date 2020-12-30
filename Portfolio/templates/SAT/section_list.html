@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/SATstyle.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Test List</title>
+<style>
+h3 {
+font-size: 25px;
+  text-align: center;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 20px;
+  height:auto;
+  text-align: center;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+li1 {
+  float: center;
+}
+
+li2 {
+  float: right;
+}
+
+li3 {
+  float: left;
+}
+
+li1 a {
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
+}
+
+li2 a {
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
+}
+
+li3 a {
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
+}
+
+p {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li3><a href="{% url 'Projects' %}">Back to Projects</a></li3>
+  <li3><a href="{% url 'About' %}">Portfolio Home</a></li3>
+  <li3><a href="{% url 'SAT:SAT_Home' %}">SAT Home</a></li3>
+
+{% if user.is_authenticated %}
+  <li2><a href="{% url 'logout' %}">{{ user.get_username }}: Log Out</a></li2>
+{% else %}
+  <li2><a href="{% url 'login' %}">Log In</a></li2>
+  <li3><a href="{% url 'SAT:Register' %}">Register</a></li3>
+{% endif %}
+    <li2><a href="{% url 'SAT:Tips & Tricks' %}">Tips & Tricks</a></li2>
+    <li2><a href="{% url 'SAT:TestList' %}">Practice Test</a></li2>
+</ul>
+<div class="jumbotron" style="background-image: url(https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg); background-size: 100%;">
+
+
+  <h1>SAT Practice Tests</h1>
+</div>
+<div class="ex1" style="background-image: url(https://previews.123rf.com/images/nexusplexus/nexusplexus1208/nexusplexus120800388/14850365-image-of-light-blue-planet-earth-against-technology-background.jpg);
+no-repeat; background-size: 100%;">
+    <br>
+<h1>There are 4 Section within Test {{ test.id }}</h1>
+    <p><b><i>(Click on the Section to begin)</i></b></p>
+
+{{ section.test.id }}
+
+<h1>Nothing</h1>
+{% for section in section_list %}
+
+<h3>{{ section }}</h3>
+
+{% endfor %}
+
+
+
+
+
+
+</div>
+</body>
+
+<br>
+
+<footer>
+   <div class="footer" style="margin-bottom:0">
+    <ul>
+  <li2><a href="terms">Terms of Use</a></li2>
+  <li2><a href="policy">Privacy Policy</a></li2>
+
+
+      </ul>
+   </div>
+</footer>
+</html>

@@ -62,16 +62,25 @@ class TestList(ListView):
         return context
 
 
-def section(request, test_id):
-    return render(request, 'index/section.html', {})
+class SectionList(ListView):
+    model = Section
+    template_name = 'SAT/section_list.html'
+    context_object_name = 'section_list'
 
+    def get_queryset(self):
+        return Section.objects.all()
 
-def quiz(request, test_id):
-    try:
-        test = Test.objects.get(pk=test_id)
-    except Test.DoesNotExist:
-        raise Http404("Sorry, Test does not exist")
-    return render(request, 'index/quiz.html', {'test': test})
+    def get_context_data(self, **kwargs):
+        context = super(SectionList, self).get_context_data(**kwargs)
+        context['SectionList'] = Question.objects.all()
+        return render(request, 'SAT/section_list.html', context)
+
+#    def quiz(request, test_id):
+#        try:
+#            test = Test.objects.get(pk=test_id)
+#        except Test.DoesNotExist:
+#            raise Http404("Sorry, Test does not exist")
+#        return render(request, 'index/quiz.html', {'test': test})
 
 
 def sect(request, test_id, section_id):
@@ -114,8 +123,6 @@ def answer(request, question_id):
 
 def final(request):
     return render(request, 'index/final.html', {})
-
-
 
 
 

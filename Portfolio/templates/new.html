@@ -1,37 +1,141 @@
 {% load static %}
-<!DOCTYPE html>
+
 <html lang="en" >
 <head>
+  <title>Long's Portfolio</title>
   <meta charset="UTF-8">
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="{% static 'css/SakuraStyle.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/SakuraStyle.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% block head %}
+{% endblock %}
 
+  <style>
+
+header1 {
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: white;
+  height: auto;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  min-height: 640px;
+  height:auto;
+  max-height: 1500px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+  color: white;
+  font-family: 'lobster';
+}
+
+h2 {
+font-size: 50px;
+  text-align: center;
+  color: white;
+  font-family: 'lobster';
+}
+
+h3 {
+font-size: 50px;
+  text-align: center;
+  color: black;
+  font-family: 'lobster';
+}
+
+ul {
+  font-size: 20px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li3 {
+  float: center;
+  font-size: 75px;
+}
+
+li2 {
+  float: right;
+  font-size: 30px;
+}
+
+li1 {
+  float: left;
+  font-size: 30px;
+}
+
+li2 a {
+  display: block;
+  padding: 8px;
+  background-color: #ffffff00;
+  color: white;
+}
+
+li1 a {
+  display: block;
+  padding: 8px;
+  background-color: #ffffff00;
+  color: white;
+}
+
+
+p {
+color: white;
+font-size: 25px;
+}
+
+{% block style %}
+{% endblock %}
+
+      </style>
 </head>
 <body>
 <!-- partial:index.partial.html -->
 <canvas id="sakura"></canvas>
 <div class="btnbg">
-    
-<div class="ex1" style="background-image: url(); no-repeat;
-  background-size: 100%;">
-  <div class="container">
-    <h2>About Me:</h2>
-    <p>A self-taught programmer who is passionate about creating, developing, and deploying software as well as web applications. </p>
-    <p>I have a Bachelor's Degree in Computer Science but during my time in college, I was not able to fully appreciate
-      the concepts of programming and therefore, decided not to follow that career path.</p>
-    <p>I still wanted to work in the IT field but was unsure of which sector to pursue.</p>
-    <p>This led my work history to consist of multiple Technical Support roles with different companies;
-      telecommunication, alarm security systems, hardware/software, and web hosting.</p>
-    <p>With each position, I was able to learn more about the IT sector as a whole, reigniting and finding purpose in
-      programming. After years of avoiding programming, I was able to finally see the genius/beauty behind it.</p>
-    <p>Since then, I have been re-teaching myself programming. Starting with the language, Python. After learning the
-    basics of the language, I decide to start building web applications; using the Django framework, to include multiple
-    functions and features. (Please click on <a href="{% url 'Projects' %}">Projects</a> to find out more.)</p>
-    <p>My next step, is to pursue a career as a Python/Software Developer.</p>
-  </div>
 
-    <h1>This is ME!!!!!!</h1>
-</div>
+  <header1>
+
+<ul>
+  <li1><a href="https://twitter.com/LongRemeo" class="fa fa-twitter" style="font-size:35px"></a></li1>
+  <li1><a href="https://www.linkedin.com/in/long-tran-45949a7a/" class="fa fa-linkedin" style="font-size:35px"></a></li1>
+  <li1><a href="https://github.com/RemeoLong" class="fa fa-github" style="font-size:35px"></a></li1>
+  <li1><a href="mailto:remeolongquangtran@gmail.com" class="fa fa-envelope" style="font-size:35px"></a></li1>
+  <li3><a>Long Q. Tran</a></li3>
+  <li2><a href="{% url 'II' %}">II</a></li2>
+  <li2><a href="{% url 'Experience' %}">Experience</a></li2>
+  <li2><a href="{% url 'Projects' %}">Projects</a></li2>
+  <li2><a href="{% url 'About' %}">About</a></li2>
+
+
+ </ul>
+
+{% block body %}
+    {% endblock %}
+
+</header1>
 
 <!-- sakura shader -->
 <script id="sakura_point_vsh" type="x-shader/x_vertex">
@@ -321,6 +425,7 @@ void main(void) {
 </script>
 <!-- partial -->
   <script  src="{% static 'css/SakuraScript.js' %}"></script>
+</div>
 
 </body>
 </html>

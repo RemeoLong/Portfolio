@@ -13,3 +13,47 @@ div.btnbg {
     left:0;
     top:0;
 }
+
+h1 {
+  font-size: 100px;
+  text-align: center;
+  color: white;
+  font-family: 'lobster';
+}
+
+h2 {
+font-size: 100px;
+  text-align: center;
+  color: white;
+  font-family: 'lobster';
+}
+
+p {
+    text-align: center;
+}
+
+.fa-linkedin {
+  color: white;
+}
+
+.fa-github {
+  color: white;
+}
+
+.fa-twitter {
+  color: white;
+}
+
+.fa-envelope {
+  color: white;
+}
+
+div.ex1 {
+  width: 1200px;
+  margin: auto;
+}
+
+div.ex2 {
+  width: 1700px;
+  margin: auto;
+}
