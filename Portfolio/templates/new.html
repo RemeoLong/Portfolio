@@ -50,9 +50,9 @@ h1 {
 }
 
 h2 {
-font-size: 50px;
+font-size: 75px;
   text-align: center;
-  color: white;
+  color: grey;
   font-family: 'lobster';
 }
 
@@ -73,7 +73,8 @@ ul {
 
 li3 {
   float: center;
-  font-size: 75px;
+  font-size: 50px;
+  color: white;
 }
 
 li2 {
@@ -90,20 +91,26 @@ li2 a {
   display: block;
   padding: 8px;
   background-color: #ffffff00;
-  color: white;
+  color: grey;
 }
 
 li1 a {
   display: block;
   padding: 8px;
   background-color: #ffffff00;
-  color: white;
+  color: grey;
 }
 
 
 p {
-color: white;
+color: black;
 font-size: 25px;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
 }
 
 {% block style %}
@@ -123,14 +130,15 @@ font-size: 25px;
   <li1><a href="https://www.linkedin.com/in/long-tran-45949a7a/" class="fa fa-linkedin" style="font-size:35px"></a></li1>
   <li1><a href="https://github.com/RemeoLong" class="fa fa-github" style="font-size:35px"></a></li1>
   <li1><a href="mailto:remeolongquangtran@gmail.com" class="fa fa-envelope" style="font-size:35px"></a></li1>
-  <li3><a>Long Q. Tran</a></li3>
   <li2><a href="{% url 'II' %}">II</a></li2>
   <li2><a href="{% url 'Experience' %}">Experience</a></li2>
   <li2><a href="{% url 'Projects' %}">Projects</a></li2>
   <li2><a href="{% url 'About' %}">About</a></li2>
-
-
  </ul>
+
+    <ul>
+        <li1><a>Long Q. Tran</a></li1>
+    </ul>
 
 {% block body %}
     {% endblock %}

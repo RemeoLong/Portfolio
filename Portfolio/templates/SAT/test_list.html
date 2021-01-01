@@ -106,7 +106,7 @@ no-repeat; background-size: 100%">
  <h1>Practice Test 1</h1>
 {% for section in test_list %}
 {% if section.test.id == 1 and section.section == 'Reading' %}
-<h3><a href=" {% url 'SAT:Reading' 1 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Test' 1 %}|add 'Section:Reading' 1 %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 1 and section.section == 'Writing and Language' %}
 <h3><a href=" {% url 'SAT:Writing' 1 %}">{{ section }}</a></h3>

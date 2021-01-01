@@ -24,12 +24,13 @@ h1 {
 h2 {
 font-size: 100px;
   text-align: center;
-  color: white;
+  color: black;
   font-family: 'lobster';
 }
 
 p {
     text-align: center;
+    color: black;
 }
 
 .fa-linkedin {
@@ -57,3 +58,4 @@ div.ex2 {
   width: 1700px;
   margin: auto;
 }
+
