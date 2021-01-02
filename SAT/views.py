@@ -1,8 +1,6 @@
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
-from django.views import generic
-
-from .models import Question, Choice, Passage, Explanation, Test, Section
+from .models import Question, Choice, Test, Section
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
@@ -11,26 +9,6 @@ from django.views.generic import ListView
 
 def home(request):
     return render(request, 'index/home.html', {})
-
-
-def tips(request):
-    return render(request, 'index/tips.html', {})
-
-
-def reading(request, test_id, section_id):
-    return render(request, 'index/reading.html', {})
-
-
-def writing(request, test_id, section_id):
-    return render(request, 'index/writing.html', {})
-
-
-def mathnc(request, test_id, section_id):
-    return render(request, 'index/mathnc.html', {})
-
-
-def math(request, test_id, section_id):
-    return render(request, 'index/math.html', {})
 
 
 def register(request):
@@ -48,6 +26,10 @@ def register(request):
     return render(request, 'index/register.html', {'form': form})
 
 
+def tips(request):
+    return render(request, 'index/tips.html', {})
+
+
 class TestList(ListView):
     model = Section
     template_name = 'SAT/test_list.html'
@@ -60,6 +42,23 @@ class TestList(ListView):
         context = super(TestList, self).get_context_data(**kwargs)
         context['TestList'] = Test.objects.all()
         return context
+
+
+def reading(request, test_id, section_id, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'index/reading.html', {'question': question})
+
+
+def writing(request, test_id, section_id):
+    return render(request, 'index/writing.html', {})
+
+
+def mathnc(request, test_id, section_id):
+    return render(request, 'index/mathnc.html', {})
+
+
+def math(request, test_id, section_id):
+    return render(request, 'index/math.html', {})
 
 
 def detail(request, test_id, section_id, question_id):

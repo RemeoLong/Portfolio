@@ -22,7 +22,9 @@
             and in any accompanying graphics (such as a table or graph).</h3>
 <br>
     <p><i>(When you are ready, Click the Button below to Begin)</i></p>
-    <button onclick="">Begin Test</button>
+    <button type="submit" value={{question.id}} onclick="location.href='{% url 'SAT:Question' question.test.id question.section.id question.id' %}'"
+            name='Start'>Begin Test</button>
+
 
 </div>
     {% endblock %}
