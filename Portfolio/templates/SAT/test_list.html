@@ -106,16 +106,16 @@ no-repeat; background-size: 100%">
  <h1>Practice Test 1</h1>
 {% for section in test_list %}
 {% if section.test.id == 1 and section.section == 'Reading' %}
-<h3><a href=" {% url 'SAT:Test' 1 %}|add 'Section:Reading' 1 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Reading' section.test.id section.id %} ">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 1 and section.section == 'Writing and Language' %}
-<h3><a href=" {% url 'SAT:Writing' 1 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Writing' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 1 and section.section == 'Math (No Calculator)' %}
-<h3><a href=" {% url 'SAT:MathNC' 1 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:MathNC' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 1 and section.section == 'Math (with Calculator)' %}
-<h3><a href=" {% url 'SAT:Math' 1 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Math' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% endfor %}
 
@@ -124,16 +124,16 @@ no-repeat; background-size: 100%">
        <h1>Practice Test 4</h1>
 {% for section in test_list %}
 {% if section.test.id == 4 and section.section == 'Reading' %}
-<h3><a href=" {% url 'SAT:Reading' 4 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Reading' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 4 and section.section == 'Writing and Language' %}
-<h3><a href=" {% url 'SAT:Writing' 4 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Writing' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 4 and section.section == 'Math (No Calculator)' %}
-<h3><a href=" {% url 'SAT:MathNC' 4 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:MathNC' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 4 and section.section == 'Math (with Calculator)' %}
-<h3><a href=" {% url 'SAT:Math' 4 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Math' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% endfor %}
 
@@ -143,16 +143,16 @@ no-repeat; background-size: 100%">
     <h1>Practice Test 2</h1>
 {% for section in test_list %}
 {% if section.test.id == 2 and section.section == 'Reading' %}
-<h3><a href=" {% url 'SAT:Reading' 2 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Reading' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 2 and section.section == 'Writing and Language' %}
-<h3><a href=" {% url 'SAT:Writing' 2 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Writing' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 2 and section.section == 'Math (No Calculator)' %}
-<h3><a href=" {% url 'SAT:MathNC' 2 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:MathNC' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 2 and section.section == 'Math (with Calculator)' %}
-<h3><a href=" {% url 'SAT:Math' 2 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Math' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% endfor %}
 
@@ -161,16 +161,16 @@ no-repeat; background-size: 100%">
           <h1>Practice Test 5</h1>
 {% for section in test_list %}
 {% if section.test.id == 5 and section.section == 'Reading' %}
-<h3><a href=" {% url 'SAT:Reading' 5 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Reading' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 5 and section.section == 'Writing and Language' %}
-<h3><a href=" {% url 'SAT:Writing' 5 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Writing' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 5 and section.section == 'Math (No Calculator)' %}
-<h3><a href=" {% url 'SAT:MathNC' 5 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:MathNC' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 5 and section.section == 'Math (with Calculator)' %}
-<h3><a href=" {% url 'SAT:Math' 5 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Math' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% endfor %}
 
@@ -179,16 +179,16 @@ no-repeat; background-size: 100%">
     <h1>Practice Test 3</h1>
 {% for section in test_list %}
 {% if section.test.id == 3 and section.section == 'Reading' %}
-<h3><a href=" {% url 'SAT:Reading' 3 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Reading' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 3 and section.section == 'Writing and Language' %}
-<h3><a href=" {% url 'SAT:Writing' 3 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Writing' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 3 and section.section == 'Math (No Calculator)' %}
-<h3><a href=" {% url 'SAT:MathNC' 3 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:MathNC' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 3 and section.section == 'Math (with Calculator)' %}
-<h3><a href=" {% url 'SAT:Math' 3 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Math' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% endfor %}
 
@@ -197,16 +197,16 @@ no-repeat; background-size: 100%">
     <h1>Practice Test 6</h1>
 {% for section in test_list %}
 {% if section.test.id == 6 and section.section == 'Reading' %}
-<h3><a href=" {% url 'SAT:Reading' 6 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Reading' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 6 and section.section == 'Writing and Language' %}
-<h3><a href=" {% url 'SAT:Writing' 6 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Writing' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 6 and section.section == 'Math (No Calculator)' %}
-<h3><a href=" {% url 'SAT:MathNC' 6 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:MathNC' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% if section.test.id == 6 and section.section == 'Math (with Calculator)' %}
-<h3><a href=" {% url 'SAT:Math' 6 %}">{{ section }}</a></h3>
+<h3><a href=" {% url 'SAT:Math' section.test.id section.id %}">{{ section }}</a></h3>
     {% endif %}
 {% endfor %}
 </div>

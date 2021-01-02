@@ -1,26 +1,23 @@
 {% extends 'new.html' %}
 {% load static %}
 
+{% block header %}
+  <li3>Experience Part 2:</li3>
+{% endblock %}
+
 {% block head %}
 {% endblock %}
 
 {% block body %}
 
-  <section id="experience" class="section scrollspy">
-    <h2 class="page-title black-text teal">2nd Experiences</h2>
-      <div class="container">
-      <div class="row">
-        <div class="col s12 m2">
+  <div class="center">
               <a href="http://csispectrum.com" target="_blank"
                 ><img
                   alt="CSI logo"
                   src="/static/css/csi.png"
                   class="responsive-img center-block"
               /></a>
-            </div>
-            <div class="col s12 m10"></div>
-          </div>
-          <p>
+                    <p>
             <em class="grey-text"
               >CSI Software, a product division of Daxko, provides fully integrated, single source health and fitness
                club management software to health and fitness clubs, campus recreation centers, parks and recreation
@@ -45,20 +42,13 @@
               with other department for resolution.
             </li>
             </ul>
-    </div>
 <br>
-    <div class="container">
-      <div class="row">
-        <div class="col s12 m2">
               <a href="http://hostgator.com" target="_blank"
                 ><img
                   alt="HostGator logo"
                   src="/static/css/hostgator.png"
                   class="responsive-img center-block"
               /></a>
-            </div>
-            <div class="col s12 m10"></div>
-          </div>
           <p>
             <em class="grey-text"
               >HostGator is a leading provider of  Shared, Reseller, VPS, and Dedicated web hosting.</em>
@@ -83,7 +73,5 @@
             </li>
             </ul>
         </div>
-      <br>
 
-  </section>
   {% endblock %}

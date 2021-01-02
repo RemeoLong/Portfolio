@@ -17,19 +17,19 @@ def tips(request):
     return render(request, 'index/tips.html', {})
 
 
-def reading(request, test_id):
+def reading(request, test_id, section_id):
     return render(request, 'index/reading.html', {})
 
 
-def writing(request, test_id):
+def writing(request, test_id, section_id):
     return render(request, 'index/writing.html', {})
 
 
-def mathnc(request, test_id):
+def mathnc(request, test_id, section_id):
     return render(request, 'index/mathnc.html', {})
 
 
-def math(request, test_id):
+def math(request, test_id, section_id):
     return render(request, 'index/math.html', {})
 
 
@@ -60,35 +60,6 @@ class TestList(ListView):
         context = super(TestList, self).get_context_data(**kwargs)
         context['TestList'] = Test.objects.all()
         return context
-
-
-class SectionList(ListView):
-    model = Section
-    template_name = 'SAT/section_list.html'
-    context_object_name = 'section_list'
-
-    def get_queryset(self):
-        return Section.objects.all()
-
-    def get_context_data(self, **kwargs):
-        context = super(SectionList, self).get_context_data(**kwargs)
-        context['SectionList'] = Question.objects.all()
-        return render(request, 'SAT/section_list.html', context)
-
-#    def quiz(request, test_id):
-#        try:
-#            test = Test.objects.get(pk=test_id)
-#        except Test.DoesNotExist:
-#            raise Http404("Sorry, Test does not exist")
-#        return render(request, 'index/quiz.html', {'test': test})
-
-
-def sect(request, test_id, section_id):
-    try:
-        section = Section.objects.get(pk=section_id)
-    except Section.DoesNotExist:
-        raise Http404("Sorry, There is no Section with that name. ")
-    return render(request, 'index/sect.html', {'section': section})
 
 
 def detail(request, test_id, section_id, question_id):

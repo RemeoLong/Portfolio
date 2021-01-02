@@ -1,23 +1,21 @@
 {% extends 'new.html' %}
 {% load static %}
 
+{% block header %}
+  <li3>Experiences:</li3>
+{% endblock %}
+
 {% block body %}
 <div class="center">
-  <section id="experience" class="section scrollspy">
-    <h2 class="page-title black-text teal">Experiences:</h2>
-    <div class="container">
-      <div class="row">
-        <div class="col s12 m2">
-          <a href="http://alula.com" target="_blank"
+
+
+    <a href="http://alula.com" target="_blank"
                 ><img
                   alt="Alula logo"
                   src="/static/css/alula.png"
                   class="responsive-img center-block"
               /></a>
-            </div>
-            <div class="col s12 m10"></div>
-          </div>
-          <p>
+<p>
             <em class="grey-text"
               >Alula offer a complete end-to-end solution that integrates hardware and interactive services for a
               seamless security, automation and video experience.</em>
@@ -37,21 +35,14 @@
             </li>
             <li>&#9642 Testing new and current products for software bugs and hardware issues.</li>
             </ul>
-        </div>
 <br>
-    <div class="container">
-      <div class="row">
-        <div class="col s12 m2">
-              <a href="http://entouch.net" target="_blank"
+     <a href="http://entouch.net" target="_blank"
                 ><img
                   alt="Entouch logo"
                   src="/static/css/entouch.png"
                   class="responsive-img center-block"
               /></a>
-            </div>
-            <div class="col s12 m10"></div>
-          </div>
-          <p>
+<p>
             <em class="grey-text"
               >enTouch, a provider of broadband, digital video, voice, security, and IoT services to businesses and
               homes in the Greater Houston area.</em>
@@ -76,7 +67,5 @@
             </li>
             </ul>
        </div>
-<br>
 
-  </section>
   {% endblock %}

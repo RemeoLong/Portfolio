@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.urls import include, path
 from . import views
-from .views import TestList, SectionList
+from .views import TestList
 
 app_name = "SAT"
 urlpatterns = [
@@ -9,8 +9,6 @@ urlpatterns = [
     path('/tips', views.tips, name='Tips & Tricks'),
     path('/register', views.register, name='Register'),
     path('/TestList', TestList.as_view(), name='TestList'),
-    path('/Test/<int:test_id>/Section/<int:section_id>', SectionList.as_view(), name='SectionList'),
-
 
     path('/Test/<int:test_id>/Section/Reading/<int:section_id>', views.reading, name='Reading'),
     path('/Test/<int:test_id>/Section/Writing/<int:section_id>', views.writing, name='Writing'),
@@ -26,6 +24,3 @@ urlpatterns = [
 
 ]
 
-#    path('/Test/<int:test_id>/Section', views.section, name='Section'),
-#    path('/Test/<int:test_id>/Section', views.quiz, name='TestNum'),
-#    path('/Test/<int:test_id>/Section/<int:section_id>/', views.sect, name='SectionNum'),

@@ -73,7 +73,7 @@ ul {
 
 li3 {
   float: center;
-  font-size: 50px;
+  font-size: 75px;
   color: white;
 }
 
@@ -84,7 +84,7 @@ li2 {
 
 li1 {
   float: left;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 li2 a {
@@ -125,22 +125,25 @@ font-size: 25px;
 
   <header1>
 
+
+<ul>
+  <li1><a>Long Q. Tran</a></li1>
+  <li2><a href="{% url 'II' %}">II</a></li2>
+  <li2><a href="{% url 'Experience' %}">Experience</a></li2>
+  <li2><a href="{% url 'Projects' %}">Projects</a></li2>
+  <li2><a href="{% url 'About' %}">About</a></li2>
+{% block header %}
+{% endblock%}
+ </ul>
+
 <ul>
   <li1><a href="https://twitter.com/LongRemeo" class="fa fa-twitter" style="font-size:35px"></a></li1>
   <li1><a href="https://www.linkedin.com/in/long-tran-45949a7a/" class="fa fa-linkedin" style="font-size:35px"></a></li1>
   <li1><a href="https://github.com/RemeoLong" class="fa fa-github" style="font-size:35px"></a></li1>
   <li1><a href="mailto:remeolongquangtran@gmail.com" class="fa fa-envelope" style="font-size:35px"></a></li1>
-  <li2><a href="{% url 'II' %}">II</a></li2>
-  <li2><a href="{% url 'Experience' %}">Experience</a></li2>
-  <li2><a href="{% url 'Projects' %}">Projects</a></li2>
-  <li2><a href="{% url 'About' %}">About</a></li2>
  </ul>
 
-    <ul>
-        <li1><a>Long Q. Tran</a></li1>
-    </ul>
-
-{% block body %}
+ {% block body %}
     {% endblock %}
 
 </header1>
