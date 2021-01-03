@@ -41,11 +41,14 @@ class TestList(ListView):
     def get_context_data(self, **kwargs):
         context = super(TestList, self).get_context_data(**kwargs)
         context['TestList'] = Test.objects.all()
+        context['Question'] = Question.objects.all()
         return context
 
 
 def reading(request, test_id, section_id, question_id):
-    question = get_object_or_404(Question, pk=question_id)
+    test = Test.objects.get(Test, pk=test_id)
+    section = Section.objects.get(Section, pk=section_id)
+    question = Question.objects.get(Question, pk=question_id)
     return render(request, 'index/reading.html', {'question': question})
 
 

@@ -53,6 +53,9 @@ class Choice(models.Model):
     choice_text = models.CharField(max_length=200)
     correct = models.CharField(max_length=10, choices=correct_choices, default='Incorrect')
 
+    class Meta:
+        ordering = ('question', 'choice_text', 'correct')
+
     def __str__(self):
         return self.choice_text
 
@@ -68,12 +71,18 @@ class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, default="")
     answer = models.CharField(blank=True, max_length=500, default='')
 
+    class Meta:
+        ordering = ('UserID', 'answer')
+
 
 class TotalScore(models.Model):
     User = models.ForeignKey(User, on_delete=models.CASCADE)
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
     section = models.ForeignKey(Section, on_delete=models.CASCADE, default='')
     score = models.IntegerField(default=0)
+
+    class Meta:
+        ordering = ('User', 'test', 'section', 'score')
 
     @receiver(post_save, sender=User)
     def create_user_totalscore(sender, instance, created, **kwargs):
