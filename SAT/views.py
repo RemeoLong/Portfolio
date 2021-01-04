@@ -31,12 +31,12 @@ def tips(request):
 
 
 class TestList(ListView):
-    model = Section
+    model = Test
     template_name = 'SAT/test_list.html'
     context_object_name = 'test_list'
 
     def get_queryset(self):
-        return Section.objects.all()
+        return Test.objects.all()
 
     def get_context_data(self, **kwargs):
         context = super(TestList, self).get_context_data(**kwargs)
@@ -44,24 +44,27 @@ class TestList(ListView):
         context['Question'] = Question.objects.all()
         return context
 
-
-def reading(request, test_id, section_id, question_id):
-    test = Test.objects.get(Test, pk=test_id)
-    section = Section.objects.get(Section, pk=section_id)
-    question = Question.objects.get(Question, pk=question_id)
-    return render(request, 'index/reading.html', {'question': question})
+    def test_count(self):
+        return self.count()
 
 
-def writing(request, test_id, section_id):
-    return render(request, 'index/writing.html', {})
+def test(request, test_id):
+    test = Test.objects.get(pk=test_id)
+    sections = Section.objects.all().filter(test_id=test_id)
+    return render(request, 'index/test.html', {'sections': sections, 'test': test})
 
 
-def mathnc(request, test_id, section_id):
-    return render(request, 'index/mathnc.html', {})
+def sections(request, test_id, section_id):
+    sections = {
+        "reading": "index/reading.html",
+        "writing and language": "index/writing.html",
+        "math (no calculator)": "index/mathnc.html",
+        "math (with calculator)": "index/math.html",
+    }
 
-
-def math(request, test_id, section_id):
-    return render(request, 'index/math.html', {})
+    test = Test.objects.get(pk=test_id)
+    section = Section.objects.get(pk=section_id)
+    return render(request, sections[section.section.lower()], {'section': section})
 
 
 def detail(request, test_id, section_id, question_id):

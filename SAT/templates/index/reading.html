@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block head %}
-<title>Test 2</title>
+<title>Test {{ section.test.id }} {{ section }}</title>
 {% endblock %}
 
 {% block body %}
 <div class="jumbotron" style="background-image: url(https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg); background-size: 100%;">
-  <h1>SAT Practice Test</h1>
+    <h1>SAT Practice Test {{ section.test.id }}</h1>
 </div>
 
 <div class="ex1" style="background-image: url(https://previews.123rf.com/images/nexusplexus/nexusplexus1208/nexusplexus120800388/14850365-image-of-light-blue-planet-earth-against-technology-background.jpg); no-repeat;
@@ -22,10 +22,10 @@
             and in any accompanying graphics (such as a table or graph).</h3>
 <br>
     <p><i>(When you are ready, Click the Button below to Begin)</i></p>
-    <button onclick="{% url 'SAT:Question' question.test.id question.section.id question.id' %}">Begin Test</button>
+     <button onclick="{% url 'SAT:Question' section.test.id section.id 1 %}">Begin Test</button>
 
-
+<br>
+  {% endblock %}
 
 </div>
-    {% endblock %}
 

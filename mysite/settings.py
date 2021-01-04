@@ -141,6 +141,6 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-LOGIN_REDIRECT_URL = 'http://remeolong.pythonanywhere.com/SAT/home'
+LOGIN_REDIRECT_URL = '/SAT/home'
 
 APPEND_SLASH = False
