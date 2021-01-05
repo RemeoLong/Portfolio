@@ -24,7 +24,7 @@
             in your test booklet for scratch work.</h3>
 <br>
     <p><i>(When you are ready, Click the Button below to Begin)</i></p>
-    <button onclick="{% url 'SAT:Question' section.test.id section.id 1 %}">Begin Test</button>
+    <button onclick="window.location.href ='{% url 'SAT:Question' section.test.id section.id section.questions.0.id %}';">Begin Test</button>
 
     <br>
   {% endblock %}

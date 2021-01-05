@@ -29,15 +29,30 @@
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
     <label for="choice{{ forloop.counter }}"><p>{{ choice.choice_text }}</p></label><br>
 {% endfor %}
+    <br>
+
 <input type="submit" value="Submit Answer">
 </form>
+
 </div>
   </div>
 </div>
 
-<button onclick="document.location='default.asp'">HTML Tutorial</button>
+   <button onclick="changePage(-1);">Prev Question</button>
+    <button onclick="changePage(1);">Next Question</button>
+
+
+    <script>
+
+var currentPage = 1;
+var maxPage = 1000;
+const changePage = (num) => {
+  let pageNum = currentPage + num
+  currentPage = pageNum < 1 ? 1 : pageNum > maxPage ? maxPage : pageNum;
+  window.location = `http://remeolong.pythonanywhere.com/SAT/${currentPage}`;
+}
+
+</script>
 
 {% endblock %}
-
-
 
