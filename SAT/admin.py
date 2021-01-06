@@ -27,8 +27,8 @@ class TotalScoreAdmin(admin.ModelAdmin):
 
 
 class AnswerAdmin(admin.ModelAdmin):
-    list_display = ('UserID', 'answer', 'question')
-    list_filter = ('UserID',)
+    list_display = ('UserID', 'test', 'section', 'answer', 'question')
+    list_filter = ('UserID', 'test', 'section')
 
 
 admin.site.register(Test, TestAdmin)

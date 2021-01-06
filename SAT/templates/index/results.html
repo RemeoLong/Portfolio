@@ -17,7 +17,7 @@
 <div class="column" style="background-color:#bbb;">
     <h1>Answer for Question: </h1>
 <h1>{{ question.questions_text }}</h1>
-
+<br>
 {% for choice in question.choice_set.all %}
     {% if choice.answer %}
     <br><p>Your Choice was: {{ choice.answer }} </p><br>
@@ -29,21 +29,19 @@
 
 <br>
 <br>
-    <button onclick="changePage(-1);">Prev Question</button>
-    <button onclick="changePage(1);">Next Question</button>
 
-
-    <script>
-
-var currentPage = 1;
-var maxPage = 1000;
-const changePage = (num) => {
-  let pageNum = currentPage + num
-  currentPage = pageNum < 1 ? 1 : pageNum > maxPage ? maxPage : pageNum;
-  window.location = `http://remeolong.pythonanywhere.com/SAT/${currentPage}`;
-}
-
-</script>
+    <a href="{% url 'SAT:Question' question.test.id question.section.id previous %}"
+       class="btn btn-secondary" role="button">Previous Question</a>
+    {% if next is not None %}
+      <a href="{% url 'SAT:Question' question.test.id question.section.id next %}"
+         class="btn btn-secondary" role="button">Next Question</a>
+    {% elif next_section is not None %}
+      <a href="{% url 'SAT:Question' question.test.id next_section first_question%}"
+         class="btn btn-secondary" role="button">Next Section</a>
+    {% elif last_question %}
+      <a href="{% url 'SAT:Final_Score' question.test.id question.section.id %}"
+         class="btn btn-secondary" role="button">End Test</a>
+    {% endif %}
 
 </ul>
 </div>

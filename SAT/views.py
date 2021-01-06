@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from .models import Question, Choice, Test, Section
@@ -48,6 +49,7 @@ class TestList(ListView):
         return self.count()
 
 
+@login_required
 def test(request, test_id):
     test = Test.objects.get(pk=test_id)
     sections = Section.objects.all().filter(test_id=test_id)
@@ -76,13 +78,38 @@ def detail(request, test_id, section_id, question_id):
 
 
 def result(request, test_id, section_id, question_id):
+    first_section_question = None
+    next_section = False
+    last_question = False
+    next = None
+
     question = get_object_or_404(Question, pk=question_id)
+    section = Section.objects.get(pk=section_id)
+    test = Test.objects.get(pk=test_id)
     choice = question.choice_set.all().first()
-    context = {'question': question, 'choice': choice}
+
+    curr_section = list(test.sections).index(section)
+    curr_question = list(section.questions).index(question)
+    if (curr_question != len(section.questions) - 1):
+        next = section.questions[curr_question + 1].id
+    elif (curr_section != len(test.sections) - 1):
+        next_section = test.sections[curr_section + 1].id
+        first_section_question = test.sections[curr_section + 1].questions[0].id
+    else:
+        last_question = True
+    previous = question.id
+
+    context = {'question': question,
+           'choice': choice,
+           'next': next,
+           'previous': previous,
+           'next_section': next_section,
+           'last_question': last_question,
+           'first_section_question': first_section_question, }
     return render(request, 'index/results.html', context)
 
 
-def answer(request, question_id):
+def answer(request, test_id, section_id, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_answer = question.choice_set.get(pk=request.POST['choice'])
@@ -94,7 +121,7 @@ def answer(request, question_id):
     else:
         selected_answer.answer = selected_answer.choice_text
         selected_answer.save()
-        return HttpResponseRedirect(reverse('results', args=(question.id,)))
+        return HttpResponseRedirect(reverse('SAT:results', args=(question.test.id, question.section.id, question.id,)))
 
 
 def final(request):

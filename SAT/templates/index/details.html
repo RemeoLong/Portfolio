@@ -23,14 +23,13 @@
 <h2>{{ question.questions_text }}</h2>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="" method="post">
+<form action=" {% url 'SAT:answer' question.test.id question.section.id question.id %} " method="post">
 {% csrf_token %}
 {% for choice in question.choice_set.all %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
     <label for="choice{{ forloop.counter }}"><p>{{ choice.choice_text }}</p></label><br>
 {% endfor %}
-    <br>
-
+<br>
 <input type="submit" value="Submit Answer">
 </form>
 
@@ -38,21 +37,6 @@
   </div>
 </div>
 
-   <button onclick="changePage(-1);">Prev Question</button>
-    <button onclick="changePage(1);">Next Question</button>
-
-
-    <script>
-
-var currentPage = 1;
-var maxPage = 1000;
-const changePage = (num) => {
-  let pageNum = currentPage + num
-  currentPage = pageNum < 1 ? 1 : pageNum > maxPage ? maxPage : pageNum;
-  window.location = `http://remeolong.pythonanywhere.com/SAT/${currentPage}`;
-}
-
-</script>
 
 {% endblock %}
 

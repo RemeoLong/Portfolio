@@ -22,10 +22,11 @@
       <p>Your account doesn't have access to this page. To proceed,
       please login with an account that has access.</p>
     {% else %}
-      <p>Please login to see this page.</p>
+      <p></p>
     {% endif %}
   {% endif %}
 <h1>Please enter your Username & Password to Log In</h1>
+  <p><i>(Login is required so we can track of your scores)</i></p>
   <br>
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}

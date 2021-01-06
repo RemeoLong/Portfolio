@@ -88,6 +88,8 @@ class Choice(models.Model):
 
 class Answer(models.Model):
     UserID = models.OneToOneField(User, on_delete=models.CASCADE, default="")
+    test = models.ForeignKey(Test, on_delete=models.CASCADE, default="")
+    section = models.ForeignKey(Section, on_delete=models.CASCADE, default="")
     question = models.ForeignKey(Question, on_delete=models.CASCADE, default="")
     answer = models.CharField(blank=True, max_length=500, default='')
 
