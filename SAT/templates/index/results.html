@@ -6,7 +6,8 @@
 
 {% block body %}
 <div class="jumbotron" style="background-image: url(https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg); background-size: 100%;">
-  <h1>SAT Practice Question: {{ question.id }} </h1>
+  <h1>Results Page</h1>
+    <h1>Test {{ question.test.id }} Section {{ question.section }} {{ question.section.id }}</h1>
 </div>
 <div class="ex2">
 <div class="row">
@@ -18,15 +19,16 @@
     <h1>Answer for Question: </h1>
 <h1>{{ question.questions_text }}</h1>
 <br>
-{% for choice in question.choice_set.all %}
-    {% if choice.answer %}
-    <br><p>Your Choice was: {{ choice.answer }} </p><br>
-    <li>&#9658; {{ choice.choice_text }}</li>
-    <li>&#9644; This answer was: <b>{{ choice.correct }}</b></li>
-    <li>&#9677; Explanation: {{ choice.explain }}</li>
-{% endif %}
-    {% endfor %}
+        <br>
+    <p><strong>Your Choice was: {{ choice.answer }}</strong></p>
+    <br>
 
+{% for choice in question.choice_set.all %}
+    <li>&#9658; Choices: {{ choice.choice_text }}</li>
+    <li>&#9644; This answer was: <b>{{ choice.correct }}</b></li>
+    <li>&#9677; Explanation: {{ choice.explain }}</li> <br>
+
+    {% endfor %}
 <br>
 <br>
 
@@ -36,7 +38,7 @@
       <a href="{% url 'SAT:Question' question.test.id question.section.id next %}"
          class="btn btn-secondary" role="button">Next Question</a>
     {% elif next_section is not None %}
-      <a href="{% url 'SAT:Question' question.test.id next_section first_question%}"
+      <a href="{% url 'SAT:Question' question.test.id next_section first_section_question %}"
          class="btn btn-secondary" role="button">Next Section</a>
     {% elif last_question %}
       <a href="{% url 'SAT:Final_Score' question.test.id question.section.id %}"

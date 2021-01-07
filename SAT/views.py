@@ -1,7 +1,9 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.db import transaction
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
-from .models import Question, Choice, Test, Section
+from .models import Question, Choice, Test, Section, Answer
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
@@ -109,7 +111,7 @@ def result(request, test_id, section_id, question_id):
     return render(request, 'index/results.html', context)
 
 
-def answer(request, test_id, section_id, question_id):
+def select_answer(request, test_id, section_id, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_answer = question.choice_set.get(pk=request.POST['choice'])
@@ -119,21 +121,11 @@ def answer(request, test_id, section_id, question_id):
             'error_message': "A Choice was not selected. Please make a selection.",
         })
     else:
-        selected_answer.answer = selected_answer.choice_text
-        selected_answer.save()
+        answer = Answer.objects.get_or_create(answer__User_id=request.user.id, answer__choice_id=request.choice.id,
+                                              answer__question_id=request.question_id)
+        answer.answer.save()
         return HttpResponseRedirect(reverse('SAT:results', args=(question.test.id, question.section.id, question.id,)))
 
 
 def final(request):
     return render(request, 'index/final.html', {})
-
-
-
-
-
-
-
-
-
-
-
