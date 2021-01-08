@@ -89,7 +89,6 @@ class Choice(models.Model):
 class Answer(models.Model):
     User = models.OneToOneField(User, on_delete=models.CASCADE, default="")
     question = models.ForeignKey(Question, on_delete=models.CASCADE, default="")
-    choice = models.ForeignKey(Choice, on_delete=models.CASCADE, default="")
     answer = models.CharField(blank=True, max_length=500, default='')
 
     class Meta:
