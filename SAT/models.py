@@ -87,12 +87,13 @@ class Choice(models.Model):
 
 
 class Answer(models.Model):
-    User = models.OneToOneField(User, on_delete=models.CASCADE, default="")
+    User = models.ForeignKey(User, on_delete=models.CASCADE, default="")
     question = models.ForeignKey(Question, on_delete=models.CASCADE, default="")
     answer = models.CharField(blank=True, max_length=500, default='')
 
     class Meta:
         ordering = ('User', 'answer')
+        unique_together = ('User', 'question')
 
 
 class TotalScore(models.Model):
