@@ -2,7 +2,7 @@ from django.conf import settings
 from django.urls import include, path
 from . import views
 from .views import TestList
-import debug_toolbar
+
 
 app_name = "SAT"
 urlpatterns = [
@@ -22,5 +22,5 @@ urlpatterns = [
          views.result, name='results'),
 
     path('final_score', views.final, name='Final_Score'),
-    path('__debug__/', include(debug_toolbar.urls)),
+
 ]

@@ -1,7 +1,4 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.middleware import get_user
-from django.contrib.auth.models import User
-from django.db import transaction
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from .models import Question, Choice, Test, Section, Answer
@@ -115,7 +112,6 @@ def result(request, test_id, section_id, question_id):
 def select_answer(request, test_id, section_id, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
-        import ipdb; ipdb.set_trace()
         selected_answer = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         return render(request, 'index/details.html', {
@@ -123,11 +119,10 @@ def select_answer(request, test_id, section_id, question_id):
             'error_message': "A Choice was not selected. Please make a selection.",
         })
     else:
-        answer = Answer.objects.get_or_create(answer__User=request.user.id,
-                                              answer__choice_id=request.POST['choice'],
-                                              answer__question_id=request.question_id,
-                                              answer=selected_answer)
-        answer.save()
+        answer = Answer.objects.get_or_create(User_id=request.user.id,
+                                              question_id=question_id,
+                                              answer=selected_answer.choice_text)
+        answer[0].save()
         return HttpResponseRedirect(reverse('SAT:results', args=(question.test.id, question.section.id, question.id,)))
 
 
