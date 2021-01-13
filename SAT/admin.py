@@ -27,7 +27,7 @@ class TotalScoreAdmin(admin.ModelAdmin):
 
 
 class AnswerAdmin(admin.ModelAdmin):
-    list_display = ('User',  'answer', 'answer')
+    list_display = ('User',  'question', 'answer')
     list_filter = ('User',)
 
 

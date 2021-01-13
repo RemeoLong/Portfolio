@@ -4,8 +4,9 @@ div.ex1 {
 }
 
 div.ex2 {
-  width: 1700px;
+  width: 100%;
   margin: auto;
+  height: 100%;
 }
 
 h1 {
