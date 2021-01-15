@@ -1,0 +1,42 @@
+{% extends 'SATbase.html' %}
+{% load static %}
+{% block head %}
+<title>Results</title>
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron" style="background-image: url(https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg); background-size: 100%;">
+    <h1>Section: {{ question.section }} {{ question.section.id }} Results</h1>
+</div>
+<h1>Total Section Score = 0{{ Choice.correct }}/{{ question.count }}0</h1>
+<div class="ex1">
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+<h1>Correct Answers:</h1>
+      {% if choice.correct == choice.answer %}
+    <p>{{ choice.question_text }}</p>
+      <p>{{ choice.answer }}</p>
+      {% endif %}
+  </div>
+
+
+<div class="column" style="background-color:#bbb;">
+    <h1>Incorrect Answers:</h1>
+<p>{% if choice.correct != choice.answer %}</p>
+    <p>{{ choice.question_text }}</p>
+    <p>{{ choice.answer }} </p>
+    {% endif %}
+
+    <br>    <br>
+    {% if next_section is not None %}
+      <a href=""
+         class="btn btn-secondary" role="button">Next Section</a>
+    {% elif last_question %}
+      <a href="{% url 'SAT:Final_Score' question.test.id question.section.id %}"
+         class="btn btn-secondary" role="button">End Test</a>
+    {% endif %}
+    </ul>
+</div>
+ </div>
+</div>
+{% endblock %}

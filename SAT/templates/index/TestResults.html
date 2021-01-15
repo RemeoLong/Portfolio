@@ -1,0 +1,36 @@
+{% extends 'SATbase.html' %}
+{% load static %}
+{% block head %}
+<title>Results</title>
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron" style="background-image: url(https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg); background-size: 100%;">
+    <h1>Test {{ question.test_id }} Results</h1>
+</div>
+<div class="ex1" style="background-image: url(https://previews.123rf.com/images/nexusplexus/nexusplexus1208/nexusplexus120800388/14850365-image-of-light-blue-planet-earth-against-technology-background.jpg); no-repeat;
+  background-size: 100%;"> <br>
+        <h1>Total SAT Score for Test #{{ question.test.id }} is: / 1600</h1>
+    <h1>Section Scores:</h1>
+
+
+     <h3> Reading {{ section.section}} 1 {{section.section_id }} Results:</h3>
+    <h3>Total Correct Answer: {{ choice.correct.count }}</h3>
+        <h3>    Raw Score =  </h3>
+
+    {% for section in question.test %}
+         {% endfor %}
+
+
+
+
+<br>
+<h3>Scoring is based on the SAT <a href="{% url 'SAT:RawScore' %}">Raw Score</a> Conversion</h3>
+      <a href="" class="btn btn-secondary" role="button">Next Test</a>
+
+    </ul>
+      </div>
+</div>
+ </div>
+</div>
+{% endblock %}

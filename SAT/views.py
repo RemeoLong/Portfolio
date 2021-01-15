@@ -77,6 +77,23 @@ def detail(request, test_id, section_id, question_id):
     return render(request, 'index/details.html', {'question': question})
 
 
+def select_answer(request, test_id, section_id, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    try:
+        selected_answer = question.choice_set.get(pk=request.POST['choice'])
+    except (KeyError, Choice.DoesNotExist):
+        return render(request, 'index/details.html', {
+            'question': question,
+            'error_message': "A Choice was not selected. Please make a selection.",
+        })
+    else:
+        answer = Answer.objects.get_or_create(User_id=request.user.id,
+                                              question_id=question_id,
+                                              answer=selected_answer.choice_text)
+        answer[0].save()
+        return HttpResponseRedirect(reverse('SAT:results', args=(question.test.id, question.section.id, question.id,)))
+
+
 def result(request, test_id, section_id, question_id):
     first_section_question = None
     next_section = False
@@ -109,22 +126,30 @@ def result(request, test_id, section_id, question_id):
     return render(request, 'index/results.html', context)
 
 
-def select_answer(request, test_id, section_id, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    try:
-        selected_answer = question.choice_set.get(pk=request.POST['choice'])
-    except (KeyError, Choice.DoesNotExist):
-        return render(request, 'index/details.html', {
-            'question': question,
-            'error_message': "A Choice was not selected. Please make a selection.",
-        })
+def Sresults(request, test_id, section_id):
+    first_section_question = None
+    next_section = False
+    last_question = False
+
+    section = Section.objects.get(pk=section_id)
+    test = Test.objects.get(pk=test_id)
+
+    curr_section = list(test.sections).index(section)
+    if (curr_section != len(test.sections) - 1):
+        next_section = test.sections[curr_section + 1].id
+        first_section_question = test.sections[curr_section + 1].questions[0].id
     else:
-        answer = Answer.objects.get_or_create(User_id=request.user.id,
-                                              question_id=question_id,
-                                              answer=selected_answer.choice_text)
-        answer[0].save()
-        return HttpResponseRedirect(reverse('SAT:results', args=(question.test.id, question.section.id, question.id,)))
+        last_question = True
+
+    context = {'next_section': next_section,
+               'last_question': last_question,
+               'first_section_question': first_section_question, }
+    return render(request, 'index/SectionResults.html', context)
 
 
-def final(request):
-    return render(request, 'index/final.html', {})
+def Tresults(request):
+    return render(request, 'index/TestResults.html', {})
+
+
+def RawScoreChart(request):
+    return render(request, 'index/chart.html', {})

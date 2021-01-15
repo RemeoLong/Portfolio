@@ -10,7 +10,7 @@
   <h1>SAT Practice Question: {{ question.id }} </h1>
 </div>
 
-<div class="ex2">
+<div class="ex1">
 <div class="row">
   <div class="column" style="background-color:#aaa;">
     <h1>Passage / Equation:</h1>
@@ -22,7 +22,7 @@
 <h1>Question: </h1>
 <h2>{{ question.questions_text }}</h2>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
+<br>
 <form action="{% url 'SAT:answer' question.test.id question.section.id question.id %}" method="post">
 {% csrf_token %}
 {% for choice in question.choice_set.all %}

@@ -14,13 +14,13 @@ urlpatterns = [
     path('/Tests/<int:test_id>/Sections/<int:section_id>', views.sections, name='Section'),
     path('/Test/<int:test_id>/Sections/<int:section_id>/Question/<int:question_id>/',
          views.detail, name='Question'),
-
     path('/Test/<int:test_id>/Sections/<int:section_id>/Question/<int:question_id>/answer/',
          views.select_answer, name='answer'),
-
     path('/Test/<int:test_id>/Sections/<int:section_id>/Question/<int:question_id>/results/',
          views.result, name='results'),
+    path('/Test/<int:test_id>/Sections/<int:section_id>/SectionResults/', views.Sresults, name='SectionResults'),
+    path('/TestResults/', views.Tresults, name='TestResults'),
 
-    path('final_score', views.final, name='Final_Score'),
+    path('RawScoreChart', views.RawScoreChart, name='RawScore'),
 
 ]
