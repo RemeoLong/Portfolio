@@ -16,7 +16,7 @@
 
      <h3> Reading {{ section.section}} 1 {{section.section_id }} Results:</h3>
     <h3>Total Correct Answer: {{ choice.correct.count }}</h3>
-        <h3>    Raw Score =  </h3>
+        <h3>Raw Score =  </h3>
 
     {% for section in question.test %}
          {% endfor %}
@@ -25,7 +25,7 @@
 
 
 <br>
-<h3>Scoring is based on the SAT <a href="{% url 'SAT:RawScore' %}">Raw Score</a> Conversion</h3>
+<p><i>**NOTE: Scores are based on this <a href="https://blog.prepscholar.com/hubfs/body_redesignscoretable2.jpg">Conversion Chart</a>.**</i></p>
       <a href="" class="btn btn-secondary" role="button">Next Test</a>
 
     </ul>
