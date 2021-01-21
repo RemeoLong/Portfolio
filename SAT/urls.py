@@ -21,6 +21,4 @@ urlpatterns = [
     path('/Test/<int:test_id>/Sections/<int:section_id>/SectionResults/', views.Sresults, name='SectionResults'),
     path('/TestResults/', views.Tresults, name='TestResults'),
 
-    path('RawScoreChart', views.RawScoreChart, name='RawScore'),
-
 ]

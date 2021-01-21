@@ -19,7 +19,7 @@
 <h1>{{ question.questions_text }}</h1>
 <br>
 
-    <p><strong>Your <i>Selection</i> was: {{ choice.answer }}</strong></p>
+    <p><strong>Your <i>Selection</i> was: {{ question.answer }}</strong></p>
     <br>
 
 {% for choice in question.choice_set.all %}
@@ -32,8 +32,8 @@
      {% if next is not None %}
       <a href="{% url 'SAT:Question' question.test.id question.section.id next %}"
          class="btn btn-secondary" role="button">Next Question</a>
-    {% else %} <h3>This was the last Question for this Section. Click <a href="{% url 'SAT:SectionResults' question.test.id question.section.id %}"
-         class="btn btn-secondary" role="button">End Section</a> to see your total score for this Section.</h3>
+    {% else %} <p><i><b>This was the last Question for this Section. Click <a href="{% url 'SAT:SectionResults' question.test.id question.section.id %}"
+         class="btn btn-success" role="button">End Section</a> to see your total score.</b></i></p>
     {% endif %}
 
     {% if last_question %}

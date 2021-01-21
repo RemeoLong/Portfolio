@@ -126,6 +126,7 @@ def result(request, test_id, section_id, question_id):
     return render(request, 'index/results.html', context)
 
 
+@login_required
 def Sresults(request, test_id, section_id):
     first_section_question = None
     next_section = False
@@ -133,6 +134,8 @@ def Sresults(request, test_id, section_id):
 
     section = Section.objects.get(pk=section_id)
     test = Test.objects.get(pk=test_id)
+    question = Question.objects.all().first
+    answer = Answer.objects.all().first()
 
     curr_section = list(test.sections).index(section)
     if (curr_section != len(test.sections) - 1):
@@ -143,13 +146,15 @@ def Sresults(request, test_id, section_id):
 
     context = {'next_section': next_section,
                'last_question': last_question,
+               'question': question,
+               'answer': answer,
                'first_section_question': first_section_question, }
     return render(request, 'index/SectionResults.html', context)
 
 
+@login_required
 def Tresults(request):
     return render(request, 'index/TestResults.html', {})
 
 
-def RawScoreChart(request):
-    return render(request, 'index/chart.html', {})
+
