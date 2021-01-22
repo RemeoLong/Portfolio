@@ -104,6 +104,7 @@ def result(request, test_id, section_id, question_id):
     section = Section.objects.get(pk=section_id)
     test = Test.objects.get(pk=test_id)
     choice = question.choice_set.all().first()
+    answer = question.answer_set.all().first()
 
     curr_section = list(test.sections).index(section)
     curr_question = list(section.questions).index(question)
@@ -120,6 +121,7 @@ def result(request, test_id, section_id, question_id):
            'choice': choice,
            'next': next,
            'previous': previous,
+           'answer': answer,
            'next_section': next_section,
            'last_question': last_question,
            'first_section_question': first_section_question, }

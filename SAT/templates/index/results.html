@@ -19,7 +19,7 @@
 <h1>{{ question.questions_text }}</h1>
 <br>
 
-    <p><strong>Your <i>Selection</i> was: {{ question.answer }}</strong></p>
+    <p><strong>Your <i>Selection</i> was: {{ answer.answer }}</strong></p>
     <br>
 
 {% for choice in question.choice_set.all %}
