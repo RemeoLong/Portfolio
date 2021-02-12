@@ -74,6 +74,10 @@ def detail(request, test_id, section_id, question_id):
         question = Question.objects.get(pk=question_id)
     except Question.DoesNotExist:
         raise Http404("Sorry, Question does not exist")
+    else:
+        score = TotalScore.objects.get_or_create(User_id=request.user.id,
+                                                 test_id=test_id,
+                                                 section_id=section_id)
     return render(request, 'index/details.html', {'question': question})
 
 
@@ -91,6 +95,10 @@ def select_answer(request, test_id, section_id, question_id):
                                               question_id=question_id,
                                               answer=selected_answer.choice_text)
         answer[0].save()
+        if answer == Choice.correct_choices:
+            TotalScore.score += 1
+        else:
+            pass
         return HttpResponseRedirect(reverse('SAT:results', args=(question.test.id, question.section.id, question.id,)))
 
 
@@ -136,6 +144,7 @@ def Sresults(request, test_id, section_id):
 
     section = Section.objects.get(pk=section_id)
     test = Test.objects.get(pk=test_id)
+    score = TotalScore.objects.get()
     question = Question.objects.all().first
     answer = Answer.objects.all().first()
 
@@ -148,6 +157,7 @@ def Sresults(request, test_id, section_id):
 
     context = {'next_section': next_section,
                'last_question': last_question,
+               'score': score,
                'question': question,
                'answer': answer,
                'first_section_question': first_section_question, }

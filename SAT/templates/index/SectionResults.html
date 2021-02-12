@@ -1,7 +1,7 @@
 {% extends 'SATbase.html' %}
 {% load static %}
 {% block head %}
-<title>Section Results</title>
+<title>Section {{ question.section }} Results</title>
 {% endblock %}
 
 {% block body %}
@@ -9,7 +9,7 @@
     <h1>Section: {{ question.section }} {{ question.section_id }} Results</h1>
 </div>
 <h1>Total Correct Answers = 0 {{ question.Choice.correct }} </h1>
-<h1> Raw SAT Score for Section: {{ question.section }} = 00 </h1>
+<h1>Raw SAT Score for Section: {{ question.section }} = 00 </h1>
 
 <div class="ex1">
 <div class="row">
