@@ -4,6 +4,12 @@
 <title>Results</title>
 {% endblock %}
 
+{% block style%}
+li {
+font-size: 18px;
+}
+{% endblock %}
+
 {% block body %}
 <div class="jumbotron" style="background-image: url(https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg); background-size: 100%;">
     <h1>Question {{ question.id }} Results</h1>
@@ -18,17 +24,18 @@
     <h1>Question:</h1>
 <h1>{{ question.questions_text }}</h1>
 <br>
-
-    <p><strong>Your <i>Selection</i> was: {{ answer.answer }}</strong></p>
-    <br>
+<br>
 
 {% for choice in question.choice_set.all %}
-    <li>&#9658; Choices: {{ choice.choice_text }}</li>
+    {% if answer.answer == choice.choice_text %}
+    <li>&#9658; <strong>Your <i>Selection</i> was: {{ choice.choice_text }}</strong></p></li> <br>
     <li>&#9644; This answer was: <b>{{ choice.correct }}</b></li>
     <li>&#9677; Explanation: {{ choice.explain }}</li> <br>
-
+    {% endif %}
     {% endfor %}
-<br>
+
+    <br>
+
      {% if next is not None %}
       <a href="{% url 'SAT:Question' question.test.id question.section.id next %}"
          class="btn btn-secondary" role="button">Next Question</a>

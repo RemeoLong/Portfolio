@@ -33,7 +33,7 @@
     <p><i>**NOTE: Scores are based on this <a href="https://blog.prepscholar.com/hubfs/body_redesignscoretable2.jpg">Conversion Chart</a>.**</i></p>
 
     {% if next_section is not None %}
-      <a href=""
+      <a href="{% url 'SAT:Question' question.test.id next_section first_section_question %}"
          class="btn btn-secondary" role="button">Next Section</a>
     {% elif last_question %}
       <a href="{% url 'SAT:Final_Score' question.test.id question.section.id %}"
