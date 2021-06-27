@@ -3,7 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.about, name='Home'),
+    path('', views.grey, name='Home'),
     path('Experience', views.work, name='Experience'),
     path('II', views.ii, name='II'),
     path('Projects', views.projects, name='Projects'),
@@ -11,4 +11,5 @@ urlpatterns = [
     path('new', views.new, name='Back'),
     path('SAT', include('SAT.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('grey', views.grey, name='grey'),
 ]

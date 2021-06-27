@@ -30,7 +30,7 @@ font-size: 18px;
     {% if answer.answer == choice.choice_text %}
     <li>&#9658; <strong>Your <i>Selection</i> was: {{ choice.choice_text }}</strong></p></li> <br>
     <li>&#9644; This answer was: <b>{{ choice.correct }}</b></li> <br>
-    <li>&#9677; Explanation: {{ choice.explain }}</li> <br>
+    <li>&#9677; <strong>Explanation:</strong> {{ choice.explain }}</li> <br>
     {% endif %}
     {% endfor %}
 

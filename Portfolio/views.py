@@ -27,3 +27,7 @@ def new(request):
 
 def ii(request):
     return render(request, 'index/II.html', {})
+
+
+def grey(request):
+    return render(request, 'index/grey.html', {})
