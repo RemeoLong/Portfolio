@@ -31,3 +31,7 @@ def ii(request):
 
 def grey(request):
     return render(request, 'index/grey.html', {})
+
+
+def resume(request):
+    return render(request, 'index/resume.html', {})

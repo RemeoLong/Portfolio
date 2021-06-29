@@ -12,4 +12,5 @@ urlpatterns = [
     path('SAT', include('SAT.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('grey', views.grey, name='grey'),
+    path('resume', views.resume, name="Resume"),
 ]
