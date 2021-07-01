@@ -43,7 +43,7 @@
 }
 
 p {
-    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0))
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05))
 }
 
 html {
@@ -4053,7 +4053,7 @@ input[type=button].btn-block {
   display: inline-block;
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
-  margin-right: 1rem;
+  margin-right: 8rem;
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
